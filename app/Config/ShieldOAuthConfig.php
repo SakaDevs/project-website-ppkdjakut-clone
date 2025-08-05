@@ -37,7 +37,7 @@ class ShieldOAuthConfig extends OAuthConfig
             'client_secret' => '2d459ceb014e576ec731cb86b69fd7c6',
 
             'allow_login'    => true,
-            'allow_register' => true,
+            'allow_register' => false,
         ],
         'github' => [
             'client_id'     => 'Ov23liKM0Wd7HJQctJqn',

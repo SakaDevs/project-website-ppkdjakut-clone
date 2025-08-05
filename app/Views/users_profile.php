@@ -175,7 +175,7 @@
                         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between">
                             <div class="flex-1">
                                 <h1 class="text-3xl font-bold text-gray-900 mb-2">
-                                    <?= $detail->username ?>
+                                    <?= auth()->user()->first_name ?? auth()->user()->username ?>
                                 </h1>
                                 <div class="flex items-center text-gray-600 mb-4">  
                                     <span class="text-lg"><?= $detail->email?></span>
@@ -203,7 +203,7 @@
 
                         <div class="info-card bg-gray-50 rounded-2xl p-4">
                             <label class="block text-sm font-medium text-gray-500 mb-1">Username</label>
-                            <p class="text-lg font-semibold text-gray-900"><?= $detail->username ?></p>
+                            <p class="text-lg font-semibold text-gray-900"><?= auth()->user()->username ?></p>
                         </div>
 
                         <div class="info-card bg-gray-50 rounded-2xl p-4">

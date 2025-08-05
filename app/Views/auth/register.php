@@ -43,13 +43,14 @@
     <div class="w-full max-w-md mx-auto p-8 bg-white rounded-lg shadow-xl my-auto" data-aos="fade-up" data-aos-duration="1000">
         <h2 class="text-3xl font-light text-center text-gray-800 mb-6"><?=lang('Auth.register')?></h2>
          <form action="<?= url_to('register') ?>" method="post" class="space-y-6">
+            <?= csrf_field() ?>
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"><?=lang('Auth.email')?></label>
                 <input type="email" id="email" name="email" required class="form-input" placeholder="<?=lang('Auth.email')?>" value="<?= old('email') ?>">
             </div>
             <div>
                 <label for="username" class="block text-sm font-medium text-gray-700 mb-1"><?=lang('Auth.username')?></label>
-                <input type="text" id="email" name="username" required class="form-input <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>">
+                <input type="text" id="username" name="username" required class="form-input <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>">
             </div>
             <div>
                 <label for="password" class="block text-sm font-medium text-gray-700 mb-1"><?=lang('Auth.password')?></label>
