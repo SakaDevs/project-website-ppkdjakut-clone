@@ -1,0 +1,72 @@
+
+
+/* Basic styling for the dropdown menu */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Position below the parent */
+  left: 0;
+  background-color: white; /* Or any background you prefer */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 1000; /* Ensure it's above other content */
+  border-radius: 0.375rem; /* rounded-md */
+  overflow: hidden; /* For rounded corners on children */
+}
+
+.dropdown-menu.active {
+  display: block; /* Show when active */
+}
+
+.dropdown-menu li {
+  padding: 0; /* Reset padding for dropdown list items */
+  background: none; /* Remove background effect for dropdown items */
+  color: inherit; /* Inherit text color */
+  transition: none; /* Remove transition for dropdown items */
+}
+
+.dropdown-menu li a {
+  padding: 0.75rem 1rem; /* Padding for dropdown links */
+  display: block;
+  white-space: nowrap; /* Prevent wrapping */
+  color: #333; /* Darker text for dropdown links */
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+  color: #000; /* Darker text on hover */
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+#images {
+  -webkit-animation: bounce 7s infinite ease-in-out;
+  -o-animation: bounce 7s infinite ease-in-out;
+  -ms-animation: bounce 7s infinite ease-in-out;
+  -moz-animation: bounce 7s infinite ease-in-out;
+  animation: bounce 7s infinite ease-in-out;
+}
+
