@@ -252,7 +252,7 @@
     <!-- HOME -->
     <div class="hero flex min-h-screen flex-col items-center justify-center px-4 text-center sm:mt-0">
         <img src="https://ppkdju.com/static/img/hero.jpg" alt="Hero Image" id="images" class="h-56 w-auto sm:h-96" data-aos="zoom-in" data-aos-duration="1000" />
-        <h1 class="mt-8 text-3xl font-light sm:text-4xl mdx:text-cyan-400" data-aos="fade-up" data-aos-delay="200">Selamat datang <span class="text-cyan-600 font-light"><?= auth()->user()->username?></span></h1>
+        <h1 class="mt-8 text-3xl font-light sm:text-4xl mdx:text-cyan-400" data-aos="fade-up" data-aos-delay="200">Selamat datang <span class="text-cyan-600 font-light"><?= auth()->user()->username ?? auth()->user()->first_name ?? 'Jaknaker'?></span></h1>
         <h1 class="mt-4 text-lg font-light sm:text-xl" data-aos="fade-up" data-aos-delay="400">Tingkatkan kompetensi mu untuk raih karir yang kamu inginkan, <strong>GRATIS!</strong></h1>
         <div class="mt-8 flex w-full max-w-xs flex-col items-center gap-4 sm:w-auto sm:max-w-none sm:flex-row sm:gap-2" data-aos="fade-up" data-aos-delay="600">
             <a class="w-full rounded-md bg-blue-400 py-2 px-6 text-white transition hover:bg-[#81beffff] sm:w-auto" href="login">Mulai</a>
