@@ -19,7 +19,7 @@ class Home extends BaseController
     public function lowongan(): string{
         $lowongan = new LowonganModel();
         $data = [
-            'lowongan' => $lowongan->asArray()->paginate(8, 'group1'),
+            'lowongan' => $lowongan->asArray()->paginate(3, 'group1'),
             'pager' => $lowongan->pager,
         ];
         return view('lowongan', $data);

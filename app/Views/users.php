@@ -36,40 +36,57 @@
                     </div>
                 </form>
             
+            
             <div class="overflow-x-auto shadow-lg rounded-lg"> 
                 <table class="min-w-full divide-y divide-gray-200" id="jadwal-table">
                     <thead class="bg-blue-400 text-white">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider rounded-tl-lg">ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Nama</th>  
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Email</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Desc</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Aksi</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider rounded-tl-lg">
+                                ID
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                Nama
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                Desc
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider rounded-tr-lg">
+                                Aksi
+                            </th>
                         </tr>
                     </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <?php $id = 1 ?>
-                            <?php foreach($users as $user): ?> 
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap"><?= $id++ ?></td>
-                                <td class="px-6 py-4 whitespace-nowrap"><?= $user->username ?></td>
-                                <td class="px-6 py-4 whitespace-nowrap"><?= $user->secret ?></td>
-                                <td class="px-6 py-4 whitespace-nowrap"><?= ucfirst($user->group) ?></td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <form action="<?= base_url('admin/change/'. $user->userid) ?>" method="post">
-                                        <?= csrf_field() ?>
-                                        <select name="role" class="border rounded px-2 py-1">
-                                            <option value="user" <?= $user->group == 'user' ? 'selected' : '' ?>>User</option>
-                                            <option value="admin" <?= $user->group == 'admin' ? 'selected' : '' ?>>Admin</option>
-                                        </select>
-                                        <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
-                                            Simpan
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>      
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <?php 
+                            $perPage = 10;
+                            $currentPage = $pager->getCurrentPage('default'); 
+                            $id = 1 + ($perPage * ($currentPage - 1));
+                        ?>
+                        <?php foreach ($users as $user): ?> 
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-800 font-medium">
+                                <?= $id++ ?>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-700">
+                                <?= esc($user->first_name ?? $user->username) ?>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-600">
+                                <?= ucfirst($user->group) ?>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <form action="<?= base_url('admin/change/'. $user->userid) ?>" method="post" class="flex items-center space-x-2">
+                                    <?= csrf_field() ?>
+                                    <select name="role" class="border rounded px-2 py-1 text-sm">
+                                        <option value="user" <?= $user->group == 'user' ? 'selected' : '' ?>>User</option>
+                                        <option value="admin" <?= $user->group == 'admin' ? 'selected' : '' ?>>Admin</option>
+                                    </select>
+                                    <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 transition">
+                                        Simpan
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>  
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
             <?php else: ?>

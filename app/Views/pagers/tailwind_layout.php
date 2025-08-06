@@ -8,15 +8,15 @@
             </li>
         <?php endif ?>
 
-        <?php foreach ($pager->links() as $link): ?>
-            <li>
-                <a href="<?= $link['uri'] ?>" 
-                   class="px-3 py-2 leading-tight border border-gray-300 
-                          <?= $link['active'] ? 'bg-blue-600 text-white' : 'bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-700' ?>">
-                    <?= $link['title'] ?>
-                </a>
-            </li>
-        <?php endforeach ?>
+            <?php foreach ($pager->links() as $link): ?>
+                <li>
+                    <a href="<?= $link['uri'] ?>" 
+                    class="px-3 py-2 leading-tight border border-gray-300 
+                            <?= $link['active'] ? 'bg-blue-600 text-white' : 'bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-700' ?>">
+                        <?= $link['title'] ?>
+                    </a>
+                </li>
+            <?php endforeach ?>
 
         <?php if ($pager->hasNextPage()): ?>
             <li>

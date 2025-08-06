@@ -99,6 +99,23 @@ class PelatihanMTUController extends BaseController
     }
     public function saveDaftar()
     {
+    $recaptchaResponse = $this->request->getPost('g-recaptcha-response');
+    if (empty($recaptchaResponse)) {
+        return redirect()->back()->withInput()->with('error', 'Anda harus mencentang kotak "Saya bukan robot".');
+    }
+    $secretKey = getenv('RECAPTCHA_SECRET_KEY');
+    $client = \config\Services::curlrequest();
+    $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
+        'form_params' => [
+            'secret' => $secretKey,
+            'response' => $recaptchaResponse,
+        ]
+    ]);
+
+    $body = json_decode($response->getBody());
+    if (!$body->success) {
+         return redirect()->back()->withInput()->with('error', 'Verifikasi reCAPTCHA gagal, silakan coba lagi.');
+    }
         $namalengkap = $this->request->getPost('nama_lengkap');
         $data = [
             'nama_lengkap' => $namalengkap,
@@ -120,6 +137,6 @@ class PelatihanMTUController extends BaseController
 
         $pelatihan = new Mtudaftar();
         $pelatihan->insert($data);
-        return redirect()->to('/pelatihan/MTU')->with('success', 'Pendaftaran berhasil!');
+        return redirect()->to('/pelatihan/MTU/daftar')->with('success', 'Pendaftaran berhasil!');
     }
 }

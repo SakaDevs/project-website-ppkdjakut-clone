@@ -18,14 +18,17 @@ class Admin extends BaseController
             $userModel->select("
                 users.id as userid,
                 users.username,
-                auth_identities.secret,
-                users.full_name,
-                users.user_image,
+                users.first_name,
                 auth_groups_users.group
             ");
             $userModel->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
             $userModel->join('auth_identities', 'auth_identities.user_id = users.id');
             $userModel->where('auth_groups_users.group !=', 'superadmin');
+            $userModel
+            ->groupStart()
+                ->where('auth_identities.type', 'email_password')
+                ->orWhere('auth_identities.type', 'facebook')
+            ->groupEnd();
 
             $data = [
                 'users' => $userModel->paginate(10),
@@ -65,14 +68,19 @@ class Admin extends BaseController
             $userModel->select("
                 users.id as userid,
                 users.username,
-                auth_identities.type,
-                users.full_name,
-                users.user_image,
+                users.first_name,
                 auth_groups_users.group
             ");
             $userModel->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
             $userModel->join('auth_identities', 'auth_identities.user_id = users.id');
-            $userModel->where('auth_identities.type', 'email_password');
+            $userModel->where('auth_groups_users.group !=', 'superadmin');
+            $userModel
+            ->groupStart()
+                ->where('auth_identities.type', 'email_password')
+                ->orWhere('auth_identities.type', 'facebook')
+            ->groupEnd();
+
+            
             if (!empty($keyword)) {
                 $userModel->groupStart()
                     ->like('users.username', $keyword)

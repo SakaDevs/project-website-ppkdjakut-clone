@@ -12,7 +12,7 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class=" min-h-screen">
     <?php include('layout/navbar.php'); ?>
 
     <div class="container mx-auto px-4 py-12 mt-20 max-w-6xl">
@@ -70,6 +70,30 @@
                         Formulir Pendaftaran Peserta Pelatihan
                     </h1>
 
+                    <?php if (session()->getFlashdata('success')): ?>
+                            <div class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:text-green-400" role="alert">
+                                <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                                </svg>
+                                <span class="sr-only">Info</span>
+                                <div>
+                                    <span class="font-medium">Success!</span> Terimakasih telah mendaftar ke PPKD Jakarta Utara
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (session()->getFlashdata('error')): ?>
+                            <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:text-red-400" role="alert">
+                                <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                                </svg>
+                                <span class="sr-only">Info</span>
+                                <div>
+                                    <span class="font-medium">Error!</span> Cek kembali kelengkapan anda! 
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
                     <form action="<?= base_url('pelatihan/MTU/daftar/success/') ?>" method="post" enctype="multipart/form-data" class="space-y-6" >
                         <?= csrf_field() ?>
 
@@ -119,6 +143,8 @@
                                 class="w-full border border-gray-300 rounded-lg p-2 bg-white focus:ring-2 focus:ring-blue-500" />
                         </div>
 
+                        <div class="g-recaptcha" data-sitekey="6LctF5wrAAAAAPVceIfrsyc6nOj-1tkrz9BReSPY"></div>
+
                         <div>
                             <button type="submit"
                                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition">
@@ -133,7 +159,7 @@
     </div>
     
     <?php include('layout/footer.php'); ?>
-    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

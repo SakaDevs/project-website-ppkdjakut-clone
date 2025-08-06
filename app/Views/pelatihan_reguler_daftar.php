@@ -12,7 +12,7 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="min-h-screen">
     <?php include('layout/navbar.php'); ?>
 
     <div class="container mx-auto px-4 py-12 mt-20 max-w-6xl">
@@ -101,7 +101,7 @@
 
                         <div>
                             <label class="block mb-2 font-medium text-gray-700">Nama Lengkap</label>
-                            <input type="text" name="nama_lengkap" required
+                            <input type="text" name="nama_lengkap" required placeholder="Masukkan Nama Lengkap"
                                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
                         </div>
 
@@ -304,7 +304,7 @@
                             </select>
                         </div>
 
-                        <div class="g-recaptcha" data-sitekey="6Letx5orAAAAAMdCbuD0FZqgjpbtVBGSWOnFYeqm"></div>
+                        <div class="g-recaptcha" data-sitekey="6LctF5wrAAAAAPVceIfrsyc6nOj-1tkrz9BReSPY"></div>
 
                         <div>
                             <button type="submit"
@@ -312,7 +312,7 @@
                                 Daftar Sekarang
                             </button>
                         </div>
-                    </form>
+                    </form> 
                 </div>
             </div>
             

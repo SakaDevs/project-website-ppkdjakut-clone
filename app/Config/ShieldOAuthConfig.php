@@ -31,30 +31,35 @@ class ShieldOAuthConfig extends OAuthConfig
      *
      * @var array<string, array<string, bool|string>>
      */
-    public array $oauthConfigs = [
+    public array $oauthConfigs;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->oauthConfigs  = [
         'facebook' => [
-            'client_id'     => '742030852129129',
-            'client_secret' => '2d459ceb014e576ec731cb86b69fd7c6',
+            'client_id'     => getenv('FACEBOOK_CLIENT_ID'),
+            'client_secret' => getenv('FACEBOOK_CLIENT_SECRET'),
 
             'allow_login'    => true,
             'allow_register' => false,
         ],
         'github' => [
-            'client_id'     => 'Ov23liKM0Wd7HJQctJqn',
-            'client_secret' => 'cbf3223c6a14a6c7252e44bf3cd9e25f5309b2ce',
+            'client_id'     => getenv('GITHUB_CLIENT_ID'),
+            'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
 
             'allow_login'    => true,
             'allow_register' => false,
         ],
         'google' => [
-            'client_id'     => '567292749185-ucn59n3jhsjncmolmk8u3hvrodlnb1uh.apps.googleusercontent.com',
-            'client_secret' => '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',
+            'client_id'     => getenv('GOOGLE_CLIENT_ID'),
+            'client_secret' => getenv('GOOGLE_CLIENT_SECRET'),
 
             'allow_login'    => true,
             'allow_register' => false,
         ],
     ];
-
+    }
     /**
      * --------------------------------------------------------------------------
      * Users Columns Name
