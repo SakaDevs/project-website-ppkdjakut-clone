@@ -113,4 +113,8 @@ class Lowongans extends BaseController
         $judul = $lowonganModel->findAll();
         return view('lowongan/daftar', compact('judul'));
     }
+    public function daftarSuccess()
+    {
+        
+    }
 }

@@ -26,8 +26,12 @@
 
             <div class="lg:w-2/3 w-full" data-aos="fade-up" data-aos-duration="1000">
                 <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h1 class="text-2xl font-bold text-gray-800 mb-8 text-center">
+                    <h1 class="text-2xl font-bold text-gray-800">
                         Formulir Pendaftaran
+                    </h1>
+
+                    <h1 class="text-2xl">
+                        <?= $judul[0]['judul_lowongan'] ?>
                     </h1>
 
                     <?php if (session()->getFlashdata('success')): ?>
@@ -54,8 +58,10 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="<?= base_url('pelatihan/MTU/daftar/success/') ?>" method="post" enctype="multipart/form-data" class="space-y-6">
+                    <form action="<?= base_url('lowongan/daftar/success/') ?>" method="post" enctype="multipart/form-data" class="space-y-6">
                         <?= csrf_field() ?>
+                        
+                        <input type="text" value="<?=$judul[0]['judul_lowongan']?>" readonly class="hidden" id="nama_lowongan" name="nama_lowongan">
 
                         <div>
                             <label for="nama_lengkap" class="block mb-2 text-sm font-medium text-gray-700">Nama Lengkap (Penanggung Jawab)</label>
@@ -63,48 +69,33 @@
                         </div>
 
                         <div>
-                            <label for="ktp" class="block mb-2 text-sm font-medium text-gray-700">Nomor KTP</label>
-                            <input type="ktp" id="ktp" name="ktp" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
+                            <label for="nomor_ktp" class="block mb-2 text-sm font-medium text-gray-700">Nomor KTP</label>
+                            <input type="nomor_ktp" id="nomor_ktp" name="nomor_ktp" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
                         </div>
 
                         <div>
-                            <label for="nomor" class="block mb-2 text-sm font-medium text-gray-700">Nomor Whatsapp / Telepon</label>
-                            <input type="tel" id="nomor" name="nomor" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
+                            <label for="nomor_hp" class="block mb-2 text-sm font-medium text-gray-700">Nomor Whatsapp / Telepon</label>
+                            <input type="tel" id="nomor_hp" name="nomor_hp" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
                         </div>
 
                         <div>
-                            <label for="maps" class="block mb-2 text-sm font-medium text-gray-700">Link Google Maps Kandidat Lokasi Pelatihan</label>
-                            <input type="text" id="maps" name="maps" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
-                        </div>
-                        
-                        <div>
-                            <label for="minat_pelatihan" class="block mb-2 text-sm font-medium text-gray-700">Minat Pelatihan</label>
-                            <select id="minat_pelatihan" name="minat_pelatihan" required class="form-select w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm">
-                                <option value="" disabled selected>-- Pilih Minat Pelatihan --</option>
-                                <option>Bahasa Inggris Untuk Tenaga Administrasi Profesional</option>
-                                <option>Pemasangan Instalasi Otomasi Listrik Industri</option>
-                                <option>Service Sepeda Motor Injeksi</option>
-                                <option>Operator Excavator</option>
-                                <option>Operator Forklift</option>
-                                <option>Desainer Grafis Madya</option>
-                                <option>Teknisi Komputer Dan Jaringan</option>
-                                <option>Cyber Security</option>
-                                <option>Junior Web Developer</option>
-                                <option>Android Developer</option>
-                                <option>Associate Data Scientist</option>
-                                <option>Editor Video</option>
-                                <option>Data Management Staff (Operator Komputer)</option>
-                                <option>Perawatan Kecantikan (Tata Rias)</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="surat_permohonan" class="block mb-2 text-sm font-medium text-gray-700">Upload Surat Permohonan</label>
-                            <input type="file" id="surat_permohonan" name="surat_permohonan" accept=".pdf,.jpg,.jpeg,.png" required class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300" />
+                            <label for="surat_permohonan" class="block mb-2 text-sm font-medium text-gray-700">KTP</label>
+                            <input type="file" id="surat_permohonan" name="surat_permohonan" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300" />
                             <p class="mt-1 text-xs text-gray-500">Tipe file: PDF, JPG, PNG. Ukuran maksimal: 1MB.</p>
                         </div>
 
-                        <div class="g-recaptcha" data-sitekey="6LctF5wrAAAAAPVceIfrsyc6nOj-1tkrz9BReSPY"></div>
+                        <div>
+                            <label for="cv" class="block mb-2 text-sm font-medium text-gray-700">CV</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300" />
+                            <p class="mt-1 text-xs text-gray-500">Tipe file: PDF, JPG, PNG. Ukuran maksimal: 1MB.</p>
+                        </div>
+                       
+                        <div>
+                            <label for="sertifikat" class="block mb-2 text-sm font-medium text-gray-700">Sertifikat PPKD</label>
+                            <input type="file" id="sertifikat" name="sertifikat" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300" />
+                            <p class="mt-1 text-xs text-gray-500">Tipe file: PDF, JPG, PNG. Ukuran maksimal: 1MB.</p>
+                        </div>
+
 
                         <div>
                             <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300">

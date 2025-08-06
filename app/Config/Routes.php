@@ -27,7 +27,9 @@ $routes->get('lowongan/edit/(:num)', 'Lowongans::edit/$1');
 $routes->post('lowongan/update/(:num)', 'Lowongans::update/$1');
 $routes->post('lowongan/delete/(:num)', 'Lowongans::delete/$1');
 $routes->post('lowongan/simpan', 'Lowongans::simpan');
+$routes->post('lowongan/daftar/success', 'Lowongans::daftarsuccess');
 $routes->get('(:segment)/daftar', 'Lowongans::daftar/$1');
+
 
 $routes->get('pelatihan/regular/tambah', 'pelatihanregularcontroller::tambah');
 $routes->get('pelatihan/regular/daftar', 'pelatihanregularcontroller::daftar');
