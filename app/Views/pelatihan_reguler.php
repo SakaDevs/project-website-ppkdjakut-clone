@@ -63,7 +63,7 @@
             <?php endif; ?> 
 
             <!-- Grid for Training Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                 <?php if(!empty($pelatihan)): ?>
                     <?php foreach ($pelatihan as $row): ?>
                         <div class="pelatihan-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">

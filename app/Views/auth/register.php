@@ -48,6 +48,11 @@
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"><?=lang('Auth.email')?></label>
                 <input type="email" id="email" name="email" required class="form-input" placeholder="<?=lang('Auth.email')?>" value="<?= old('email') ?>">
             </div>
+            
+            <div>
+                <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input type="text" id="full_name" name="full_name" required class="form-input <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="Full Name" value="<?= old('username') ?>">
+            </div>
             <div>
                 <label for="username" class="block text-sm font-medium text-gray-700 mb-1"><?=lang('Auth.username')?></label>
                 <input type="text" id="username" name="username" required class="form-input <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>">
