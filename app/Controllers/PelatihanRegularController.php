@@ -12,11 +12,11 @@ class PelatihanRegularController extends BaseController
     public function reguler()
     {
         $pelatihan = (new PelatihanRegularModel())->findAll();
-        return view('pelatihan_reguler', compact('pelatihan'));
+        return view('pelatihan/reguler/pelatihan_reguler', compact('pelatihan'));
     }
     public function tambah()
     {
-        return view('pelatihan_reguler_tambah');
+        return view('pelatihan/reguler/pelatihan_reguler_tambah');
     }
     public function add()
     {
@@ -36,7 +36,7 @@ class PelatihanRegularController extends BaseController
         }
         $pelatihan = new PelatihanRegularModel();
         $pelatihan->insert($data);
-        return redirect('pelatihan/regular');
+        return redirect('pelatihan/reguler/pelatihan/regular');
         
     }
 
@@ -47,7 +47,7 @@ class PelatihanRegularController extends BaseController
         if (!$data['pelatihan']) {
             return redirect()->to('/')->with('error','');
         }
-        return view('pelatihan_reguler_edit', compact('data'));
+        return view('pelatihan/reguler/pelatihan_reguler_edit', compact('data'));
     }
     public function delete($id)
     {
@@ -91,11 +91,11 @@ class PelatihanRegularController extends BaseController
         } else {
             $search = $pelatihan->findAll();
         }
-        return view('pelatihan_reguler', ['pelatihan' => $search]);
+        return view('pelatihan/reguler/pelatihan_reguler', ['pelatihan' => $search]);
     }
     public function daftar()
     {
-        return view('pelatihan_reguler_daftar');
+        return view('pelatihan/reguler/pelatihan_reguler_daftar');
     }
     public function daftarSave()
     {

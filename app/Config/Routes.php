@@ -19,14 +19,15 @@ $routes->post('jadwal/delete/(:num)', 'jadwal::delete/$1');
 $routes->get('jadwal/edit/(:num)', 'jadwal::edit/$1');
 $routes->post('jadwal/update/(:num)', 'jadwal::update/$1');
 // lowongan
-$routes->get('lowongan', 'Home::lowongan');
+$routes->get('lowongan', 'lowongans::lowongan');
 $routes->get('lowongan/detail/(:num)', 'lowongans::findbyid/$1');
-$routes->get('/lowongansearch', 'Lowongans::search');
+$routes->get('/lowongan/search', 'Lowongans::search');
 $routes->get('lowongan/tambah', 'Lowongans::tambah');
 $routes->get('lowongan/edit/(:num)', 'Lowongans::edit/$1');
 $routes->post('lowongan/update/(:num)', 'Lowongans::update/$1');
 $routes->post('lowongan/delete/(:num)', 'Lowongans::delete/$1');
 $routes->post('lowongan/simpan', 'Lowongans::simpan');
+$routes->get('(:segment)/daftar', 'Lowongans::daftar/$1');
 
 $routes->get('pelatihan/regular/tambah', 'pelatihanregularcontroller::tambah');
 $routes->get('pelatihan/regular/daftar', 'pelatihanregularcontroller::daftar');
@@ -51,16 +52,17 @@ $routes->post('pelatihan/MTU/daftar/success/','pelatihanmtucontroller::saveDafta
 
 
 // users
-$routes->get('users/search', 'admin::search',);
-$routes->get('users', 'admin::users' );
-$routes->post('users/update/(:num)', 'home::saveUser/$1' , );
-$routes->get('users_profile/(:num)', 'home::users/$1',  );
-$routes->get('users_profile/edit/(:num)', 'admin::edit/$1', );
+$routes->get('users/search', 'users::search',);
+$routes->get('users', 'users::users' );
+$routes->post('users/update/(:num)', 'users::saveUser/$1' , );
+$routes->get('users_profile/(:num)', 'users::usersprofile/$1',  );
+$routes->get('users_profile/edit/(:num)', 'users::edit/$1', );
 
 // facebook auth
 $routes->group('oauth', function($routes) {
     $routes->get('facebook', 'Auth\FacebookController::redirect');
     $routes->get('facebook/callback', 'Auth\FacebookController::callback');
+
 });
 
 

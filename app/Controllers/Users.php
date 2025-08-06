@@ -10,7 +10,7 @@ use CodeIgniter\Shield\Models\UsersChangeModel;
 use SebastianBergmann\CodeUnit\FunctionUnit;
 use Config\Pager;
 
-class Admin extends BaseController
+class Users extends BaseController
 {
         public function users()
         {
@@ -34,7 +34,7 @@ class Admin extends BaseController
                 'users' => $userModel->paginate(10),
                 'pager' => $userModel->pager,
             ]; 
-            return view('users', $data);
+            return view('users/users', $data);
         }
 
        public function change($id)
@@ -89,16 +89,13 @@ class Admin extends BaseController
                     ->groupEnd();
             }
 
-            // Ambil semua data hasil query
             $data = [
                 'users' => $userModel->paginate(10),
                 'pager' => $userModel->pager,
             ];
 
-            return view('users', $data);
+            return view('users/users', $data);
         }
-
-
 
       public function edit($id)
         {
@@ -108,6 +105,31 @@ class Admin extends BaseController
                 return redirect()->to('/')->with('error', 'Akses ditolak!');
             }
             
-            return view('users_profile_edit', compact('detail')); 
+            return view('users/users_profile_edit', compact('detail')); 
+        }
+        public function usersprofile($id)
+        {
+            $users = new UserModel();
+            $detail = $users->where('id', $id)->first();
+            if ($id != user_id()) {
+                return redirect()->to('/')->with('error', 'Akses ditolak!');
+            }
+               
+            return view('users/users_profile', compact('detail'));
+        }
+        public function saveUser($id)
+        {
+            $user = new UserModel();
+            $data = $this->request->getPost();
+            
+            $foto = $this ->request->getFile('user_image');
+            if ($foto && $foto->isValid() && !$foto->hasMoved()) {
+                $newname = $foto->getRandomName();
+                $foto->move('uploads/foto_profile/', $newname);
+                $data['user_image'] = $newname;
+            }
+            $user->skipValidation(true);
+            $user->update($id, $data);
+            return redirect()->to('users_profile/' .$id)->with('success', 'Berhasil');
         }
 }

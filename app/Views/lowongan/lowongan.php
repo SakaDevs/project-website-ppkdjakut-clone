@@ -37,8 +37,8 @@
         }
     </style>
 </head>
-<body class="min-h-screen">
-    <?php include('layout/navbar.php'); ?>
+<body class="min-h-screen bg-gray-50">
+    <?= view('layout/navbar.php'); ?>
 
     <div class="container mx-auto px-4 py-8 mt-20">
         <div class="max-w-7xl mx-auto">
@@ -58,7 +58,7 @@
                     </div>
                     <?php if (auth()->loggedIn() && auth()->user()->inGroup('admin')): ?>
                         <div class="text-center mt-6">
-                            <a href="<?= base_url('lowongan/tambah') ?>" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-lg font-semibold shadow-sm transition-transform hover:scale-105">
+                            <a href="<?= base_url('lowongan/tambah') ?>" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-lg font-semibold shadow-sm transition-transform hover:scale-105 inline-block">
                                 + Tambah Lowongan
                             </a>
                         </div>
@@ -69,7 +69,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-duration="800">
                 <?php if(!empty($lowongan)): ?>
                     <?php foreach ($lowongan as $row): ?>
-                        <div class="job-card bg-white rounded-xl border border-gray-200 overflow-hidden p-5">
+                        <div class="job-card bg-white rounded-xl border border-gray-200 overflow-hidden p-6">
                             <!-- Poster Image -->
                             <img class="w-full rounded-lg object-contain mb-5 shadow-sm" 
                                  src="<?= base_url('uploads/foto_lowongan/' . $row['gambar_poster']) ?>" 
@@ -77,7 +77,7 @@
                                  onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Image+Not+Found';" />
 
                             <!-- Job Title -->
-                            <h3 class="text-lg font-bold text-gray-900 mb-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-1">
                                 <?= esc($row['judul_lowongan']) ?>
                             </h3>
 
@@ -100,7 +100,6 @@
                                 <div class="flex justify-between items-center">
                                     <!-- Posting Date -->
                                     <span class="text-xs text-gray-500">
-                                        <!-- Assumes a 'created_at' field exists. Provides a fallback. -->
                                         Diposting: <?= isset($row['created_at']) ? date('d M Y', strtotime($row['created_at'])) : 'N/A' ?>
                                     </span>
                                     
@@ -112,13 +111,14 @@
                                 
                                 <!-- Admin Buttons -->
                                 <?php if (auth()->loggedIn() && auth()->user()->inGroup('admin')): ?>
-                                    <div class="flex items-center gap-4 justify-end mt-4">
-                                        <a href="/lowongan/edit/<?= $row['id']?>" class="text-xs font-medium text-green-600 hover:underline">
+                                    <div class="flex items-center justify-end gap-4 mt-4 pt-4 border-t border-gray-100">
+                                        <a href="/lowongan/edit/<?= $row['id']?>" class="text-sm font-medium text-green-600 hover:underline">
                                             Edit
                                         </a>
                                         <form action="/lowongan/delete/<?= $row['id'] ?>" method="post" class="m-0" onsubmit="return confirm('Apakah kamu yakin ingin menghapus lowongan ini?');">
                                             <?= csrf_field() ?>
-                                            <button type="submit" class="text-xs font-medium text-red-600 hover:underline">
+                                            <!-- This button is now aligned because the mt-1 class was removed -->
+                                            <button type="submit" class="text-sm font-medium text-red-600 hover:underline">
                                                 Delete
                                             </button>
                                         </form>
@@ -141,13 +141,13 @@
 
             <!-- Pagination -->
             <div class="mt-12 flex justify-center">
-                <?php  echo $pager->links('group1', 'tailwind_layout');  ?>
+                <?= $pager->links('group1', 'tailwind_layout'); ?>
             </div>
         </div>
     </div>
         
     <!-- Assuming footer.php is in the same directory or configured path -->
-    <?php  include('layout/footer.php'); ?>
+    <?= view('layout/footer.php'); ?>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

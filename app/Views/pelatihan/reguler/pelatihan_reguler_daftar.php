@@ -13,7 +13,7 @@
     </style>
 </head>
 <body class="min-h-screen">
-    <?php include('layout/navbar.php'); ?>
+<?= view('layout/navbar.php'); ?>
 
     <div class="container mx-auto px-4 py-12 mt-20 max-w-6xl">
         <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
@@ -318,7 +318,8 @@
             
         </div>
     </div>
-    <?php include('layout/footer.php'); ?>
+    <?= view('layout/footer.php'); ?>
+
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

@@ -18,7 +18,7 @@
     </style>
 </head>
 <body class="min-h-screen">
-    <?= $this->include('layout/navbar') ?>
+<?= view('layout/navbar.php'); ?>
 
     <section id="jadwal-pelatihan-section" class="py-12 lg:py-16 mt-15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
@@ -120,7 +120,7 @@
         </div>
     </section>
         
-    <?php include('layout/footer.php') ?>
+    <?= view('layout/footer.php'); ?>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

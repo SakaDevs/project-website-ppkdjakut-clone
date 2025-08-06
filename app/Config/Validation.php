@@ -41,48 +41,44 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
-     public array $registration = [
-         'username' => [
-            'label' => 'Auth.username',
-            'rules' => [
-                'required',
-                'max_length[30]',
-                'min_length[3]',
-                'regex_match[/\A[a-zA-Z0-9\.]+\z/]',
-                'is_unique[users.username]',
+    public $register = [
+        'email' => [
+            'label' => 'Email',
+            'rules' => 'required|valid_email|is_unique[users.email]',
+            'errors' => [
+                'required' => '{field} wajib diisi.',
+                'valid_email' => 'Format {field} tidak valid.',
+                'is_unique' => '{field} sudah terdaftar.',
             ],
         ],
         'full_name' => [
-            'label' => 'full_name',
-            'rules' => [
-                'required',
-                'max_length[100]',
-                'min_length[3]',
-            ],
+            'label' => 'Nama Lengkap',
+            'rules' => 'required|min_length[3]|max_length[50]',
         ],
-        'email' => [
-            'label' => 'Auth.email',
-            'rules' => [
-                'required',
-                'max_length[254]',
-                'valid_email',
-                'is_unique[auth_identities.secret]',
-            ],
+        'username' => [
+            'label' => 'Nama Pengguna',
+            'rules' => 'required|alpha_numeric|min_length[4]|is_unique[users.username]',
         ],
         'password' => [
-            'label' => 'Auth.password',
-            'rules' => [
-                    'required',
-                    'max_byte[72]',
-                    'strong_password[]',
-                ],
-            'errors' => [
-                'max_byte' => 'Auth.errorPasswordTooLongBytes'
-            ]
+            'label' => 'Kata Sandi',
+            'rules' => 'required|min_length[6]',
         ],
         'password_confirm' => [
-            'label' => 'Auth.passwordConfirm',
+            'label' => 'Kata Sandi (lagi)',
             'rules' => 'required|matches[password]',
+            'errors' => [
+                'matches' => 'Kata sandi tidak sama!',
+            ]
+        ],
+        'phone_number' => [
+            'label' => 'Nomor Telepon',
+            'rules' => 'required|numeric|min_length[8]|max_length[15]',
+            'errors' => [
+                'numeric' => '{field} hanya boleh angka.',
+                'min_length' => '{field} terlalu pendek.',
+                'max_length' => '{field} terlalu panjang.',
+            ],
         ],
     ];
+    
 }

@@ -21,9 +21,9 @@
         }
     </style>
 </head>
-<?php include('layout/navbar.php') ?>
-<body class="bg-gray-50 min-h-screen py-10 px-4">
-    <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100 justify-center mt-20" data-aos="fade-up" duration="1000">
+<?= view('layout/navbar.php'); ?>
+<body class="min-h-screen">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100 justify-center mt-20" data-aos="fade-up" data-aos-duration="1000">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tambah Jadwal Baru</h2>
 
         <?php if (session()->getFlashdata('errors')): ?>
@@ -35,50 +35,51 @@
                 </ul>
             </div>
         <?php endif; ?>
-        <form action="<?= base_url('jadwal/update/' . $data['id']) ?>" method="post" enctype="multipart/form-data">
+
+        <form action="<?= base_url('jadwal/simpan') ?>" method="post" enctype="multipart/form-data">
              <div class="mb-4">
                 <label class="block font-medium text-gray-700">Judul Jadwal</label>
-                <input type="text" name="nama_program" class="w-full p-3 border border-gray-300 rounded-xl" value="<?= $data['nama_program']?>" required>
+                <input type="text" name="nama_program" class="w-full p-3 border border-gray-300 rounded-xl" value="<?= old('nama_perusahaan') ?>" required>
             </div>
         
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Angkatan</label>
-                <input type="number" min="1" max="5" name="angkatan" class="w-full p-3 border border-gray-300 rounded-xl" required value="<?=$data['angkatan']?>">
+                <input type="number" min="1" max="5" name="angkatan" class="w-full p-3 border border-gray-300 rounded-xl" required>
             </div>
 
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Tutup Pendaftaran</label>
-                <input type="date" name="tutup_pendaftaran" rows="5" class="w-full p-3 border border-gray-300 rounded-xl" required value="<?=$data['tutup_pendaftaran']?>"></input type="date">
+                <input type="date" name="tutup_pendaftaran" rows="5" class="w-full p-3 border border-gray-300 rounded-xl" required></input type="date">
             </div>
             
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Mulai Seleksi</label>
-                <input type="date" name="mulai_seleksi" rows="5" class="w-full p-3 border border-gray-300 rounded-xl" required value="<?=$data['mulai_seleksi']?>"></input type="date">
+                <input type="date" name="mulai_seleksi" rows="5" class="w-full p-3 border border-gray-300 rounded-xl" required></input type="date">
             </div>
 
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Akhir Seleksi</label>
-                <input type="date" name="akhir_seleksi" class="w-full p-3 border border-gray-300 rounded-xl"  required value="<?=$data['akhir_seleksi']?>">
+                <input type="date" name="akhir_seleksi" class="w-full p-3 border border-gray-300 rounded-xl"  required>
             </div>
             
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Mulai Pelatihan</label>
-                <input type="date" name="mulai_pelatihan" class="w-full p-3 border border-gray-300 rounded-xl" required value="<?=$data['mulai_pelatihan']?>">
+                <input type="date" name="mulai_pelatihan" class="w-full p-3 border border-gray-300 rounded-xl" required>
             </div>
 
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Akhir Pelatihan</label>
-                <input type="date" name="akhir_pelatihan" class="w-full p-3 border border-gray-300 rounded-xl" required value="<?=$data['akhir_pelatihan']?>">
+                <input type="date" name="akhir_pelatihan" class="w-full p-3 border border-gray-300 rounded-xl" required>
             </div>
 
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Awal Uji Kompetensi</label>
-                <input type="date" name="awal_kompetensi" class="w-full p-3 border border-gray-300 rounded-xl" required value="<?=$data['awal_kompetensi']?>">
+                <input type="date" name="awal_kompetensi" class="w-full p-3 border border-gray-300 rounded-xl" required>
             </div>
 
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Akhir Uji Kompetensi</label>
-                <input type="date" name="akhir_kompetensi" class="w-full p-3 border border-gray-300 rounded-xl" required value="<?=$data['akhir_kompetensi']?>">
+                <input type="date" name="akhir_kompetensi" class="w-full p-3 border border-gray-300 rounded-xl" required>
             </div>
 
             <div class="flex justify-between">
@@ -87,6 +88,7 @@
             </div>
         </form>
     </div>
+    <?= view('layout/footer.php'); ?>
        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -12,11 +12,11 @@ class PelatihanMTUController extends BaseController
     public function mtu()
     {
         $pelatihan = (new PelatihanMTUModel())->findAll();;
-        return view('pelatihan_MTU', compact('pelatihan'));
+        return view('pelatihan/MTU/pelatihan_MTU', compact('pelatihan'));
     }
     public function tambah()
     {
-        return view('pelatihan_MTU_tambah');
+        return view('pelatihan/MTU/pelatihan_MTU_tambah');
     }
     public function add()
     {
@@ -47,7 +47,7 @@ class PelatihanMTUController extends BaseController
         if (!$data['pelatihan']) {
             return redirect()->to('/')->with('error','');
         }
-        return view('pelatihan_MTU_edit', compact('data'));
+        return view('pelatihan/MTU/pelatihan_MTU_edit', compact('data'));
     }
     public function delete($id)
     {
@@ -91,11 +91,11 @@ class PelatihanMTUController extends BaseController
         } else {
             $search = $pelatihan->findAll();
         }
-        return view('pelatihan_MTU', ['pelatihan' => $search]);
+        return view('pelatihan/MTU/pelatihan_MTU', ['pelatihan' => $search]);
     }
     public function daftar()
     {
-        return view('pelatihan_MTU_daftar');
+        return view('pelatihan/MTU/pelatihan_MTU_daftar');
     }
     public function saveDaftar()
     {

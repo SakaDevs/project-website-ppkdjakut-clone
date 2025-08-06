@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/welcome.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Anda bisa memindahkan semua custom CSS dari <style> sebelumnya ke welcome.css */
-        /* Contoh style untuk form input jika tidak cukup dengan Tailwind */
+        /* Custom styles for form inputs to ensure consistency */
         .form-input {
             width: 100%;
             padding: 0.75rem 1rem; /* p-3 px-4 */
@@ -29,56 +29,105 @@
             outline: 0;
             box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25); /* ring-blue-400/50 */
         }
-        /* Pastikan juga semua CSS untuk preloader, video popup, dan navbar mobile ada di welcome.css */
+        /* Assuming preloader CSS is in welcome.css */
     </style>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col justify-center items-center">
+<body class="bg-gray-50 min-h-screen flex flex-col">
     <div id="preloader">
         <div class="spinner"></div>
     </div>
 
-    <?= $this->include('layout/navbar') ?> 
+    <?= $this->include('layout/navbar') ?>
 
-    <div class="w-full max-w-md mx-auto p-8 bg-white rounded-lg shadow-xl my-auto" data-aos="fade-up" data-aos-duration="1000">
-        <h2 class="text-3xl font-light text-center text-gray-800 mb-6"><?=lang('Auth.register')?></h2>
-         <form action="<?= url_to('register') ?>" method="post" class="space-y-6">
-            <?= csrf_field() ?>
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"><?=lang('Auth.email')?></label>
-                <input type="email" id="email" name="email" required class="form-input" placeholder="<?=lang('Auth.email')?>" value="<?= old('email') ?>">
-            </div>
-            
-            <div>
-                <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                <input type="text" id="full_name" name="full_name" required class="form-input <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="Full Name" value="<?= old('username') ?>">
-            </div>
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700 mb-1"><?=lang('Auth.username')?></label>
-                <input type="text" id="username" name="username" required class="form-input <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>">
-            </div>
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700 mb-1"><?=lang('Auth.password')?></label>
-                <input type="password"  name="password" required class="form-input <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.password')?>" autocomplete="off">
-            </div>
-            <div>
-                <label for="pass_confirm" class="block text-sm font-medium text-gray-700 mb-1"><?=lang('Auth.repeatPassword')?></label>
-                <input type="password" name="password_confirm" required class="form-input <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="<?= lang('Auth.passwordConfirm') ?>" autocomplete="off">
-            </div>
-            
-            <button type="submit" class="w-full bg-blue-400 text-white py-3 px-4 rounded-md hover:bg-blue-500 transition focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 font-semibold text-lg">
-                <?=lang('Auth.register')?>
-            </button>
-        </form>
+    <main class="flex-grow flex justify-center items-center overflow-auto px-4 py-8">
+        <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-xl" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-3xl font-light text-center text-gray-800 mb-6"><?= lang('Auth.register') ?></h2>
 
-        <p class="text-center text-sm text-gray-600 mt-6">
-            Sudah punya akun? <a href="<?= base_url('login') ?>" class="text-blue-400 hover:underline"><?= lang('Auth.login') ?></a>
-        </p>
-    </div>
+            <!-- General Error/Message Block -->
+            <?php if (session('error') !== null) : ?>
+                <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert"><?= esc(session('error')) ?></div>
+            <?php elseif (session('errors') !== null) : ?>
+                <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
+                    <?php if (is_array(session('errors'))) : ?>
+                        <?php foreach (session('errors') as $error) : ?>
+                            <?= esc($error) ?><br>
+                        <?php endforeach ?>
+                    <?php else : ?>
+                        <?= esc(session('errors')) ?>
+                    <?php endif ?>
+                </div>
+            <?php endif ?>
 
+            <?php if (session('message') !== null) : ?>
+                <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert"><?= esc(session('message')) ?></div>
+            <?php endif ?>
+
+            <form action="<?= url_to('register') ?>" method="post" class="space-y-4">
+                <?= csrf_field() ?>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                        <?= lang('Auth.email') ?>
+                    </label>
+                    <input type="email" id="email" name="email" required class="form-input <?= session('errors.email') ? 'border-red-500' : '' ?>" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>">
+                </div>
+
+                <!-- Phone Number -->
+                <div>
+                    <label for="phone_number" class="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number
+                    </label>
+                    <input type="text" id="phone_number" name="phone_number" required class="form-input <?= session('errors.phone_number') ? 'border-red-500' : '' ?>" placeholder="08123456789" value="<?= old('phone_number') ?>">
+                </div>
+
+                <!-- Full Name -->
+                <div>
+                    <label for="full_name" class="block text-sm font-medium text-gray-700 mb-1">
+                        Full Name
+                    </label>
+                    <input type="text" id="full_name" name="full_name" required class="form-input <?= session('errors.full_name') ? 'border-red-500' : '' ?>" placeholder="Full Name" value="<?= old('full_name') ?>">
+                </div>
+
+                <!-- Username -->
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">
+                        <?= lang('Auth.username') ?>
+                    </label>
+                    <input type="text" id="username" name="username" required class="form-input <?= session('errors.username') ? 'border-red-500' : '' ?>" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>">
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">
+                        <?= lang('Auth.password') ?>
+                    </label>
+                    <input type="password" name="password" required class="form-input <?= session('errors.password') ? 'border-red-500' : '' ?>" placeholder="<?= lang('Auth.password') ?>" autocomplete="new-password">
+                </div>
+
+                <!-- Password Confirm -->
+                <div>
+                    <label for="pass_confirm" class="block text-sm font-medium text-gray-700 mb-1">
+                        <?= lang('Auth.repeatPassword') ?>
+                    </label>
+                    <input type="password" name="password_confirm" required class="form-input <?= session('errors.password_confirm') ? 'border-red-500' : '' ?>" placeholder="<?= lang('Auth.passwordConfirm') ?>" autocomplete="new-password">
+                </div>
+
+                <button type="submit" class="w-full bg-blue-400 text-white py-3 px-4 rounded-md hover:bg-blue-500 transition focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 font-semibold text-lg mt-6">
+                    <?= lang('Auth.register') ?>
+                </button>
+            </form>
+
+            <p class="text-center text-sm text-gray-600 mt-6">
+                Sudah punya akun? <a href="<?= base_url('login') ?>" class="text-blue-400 hover:underline"><?= lang('Auth.login') ?></a>
+            </p>
+        </div>
+    </main>
+
+    <?= $this->include('layout/footer') ?>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script>
         AOS.init({
             offset: 120,
@@ -89,8 +138,6 @@
             mirror: false,
             anchorPlacement: 'top-bottom',
         });
-
-
     </script>
 </body>
 </html>

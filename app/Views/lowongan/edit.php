@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tambah Lowongan</title>
+    <title>Edit Lowongan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -22,8 +22,10 @@
     </style>
 </head>
 
-<?php include('layout/navbar.php') ?>
-<body class="bg-gray-50 min-h-screen py-10 px-4">
+<body class="flex flex-col min-h-screen bg-gray-50">
+<?= view('layout/navbar.php'); ?>
+
+<main class="flex-grow py-10 px-4">
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100 justify-center mt-20" data-aos="fade-up" data-aos-duration="1000">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Edit Lowongan</h2>
 
@@ -70,19 +72,21 @@
         </form>
         <?php endforeach;?>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                offset: 120,
-                delay: 0,
-                duration: 400,
-                easing: 'ease',
-                once: false,
-                mirror: false,
-                anchorPlacement: 'top-bottom',
-            });
+</main> <?= view('layout/footer.php'); ?>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            offset: 120,
+            delay: 0,
+            duration: 400,
+            easing: 'ease',
+            once: false,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
         });
-    </script>
+    });
+</script>
 </body>
 </html>

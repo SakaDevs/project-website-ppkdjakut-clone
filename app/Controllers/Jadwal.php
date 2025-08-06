@@ -11,7 +11,7 @@ class Jadwal extends BaseController
     public function index()
     {
         $jadwal = (new JadwalModel())->findAll();
-        return view("jadwal", compact("jadwal"));
+        return view("jadwal/jadwal", compact("jadwal"));
     }
     public function delete($id)
     {
@@ -23,7 +23,7 @@ class Jadwal extends BaseController
     }
     public function tambah()
     {
-        return view('tambah_jadwal');
+        return view('jadwal/tambah_jadwal');
     }
 
     public function simpan()
@@ -50,7 +50,7 @@ class Jadwal extends BaseController
         $jadwalModel = new jadwalModel();
         $data = $jadwalModel->find($id);
 
-        return view('edit_jadwal', compact('data'));
+        return view('jadwal/edit_jadwal', compact('data'));
     }
     public function update($id)
     {
@@ -73,6 +73,6 @@ class Jadwal extends BaseController
         } else {
             $jadwal = $jadwalModel->findAll(); 
         }
-        return view('jadwal', ['jadwal'=>$jadwal]);
+        return view('jadwal/jadwal', ['jadwal'=>$jadwal]);
     }
 }

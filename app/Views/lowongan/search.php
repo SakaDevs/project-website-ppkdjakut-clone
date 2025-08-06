@@ -78,7 +78,7 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Navbar include would go here -->
-    <?= $this->include('layout/navbar') ?>   
+    <?= view('layout/navbar.php'); ?>   
     <!-- Jobs Container -->
     <div class="container mx-auto px-4 py-8" data-aos="fade-up" duration="1000">
         <div class="max-w-9xl mx-auto">
@@ -176,7 +176,7 @@
             <?php endif; ?>
         </div>
     </div>
-<?php include('layout/footer.php') ?>
+    <?= view('layout/footer.php'); ?>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({

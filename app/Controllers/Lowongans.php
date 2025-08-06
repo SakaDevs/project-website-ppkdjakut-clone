@@ -13,11 +13,20 @@ class Lowongans extends BaseController
     {
         $this->lowonganModel = new LowonganModel();
     }
+    public function lowongan(): string{
+        $lowongan = new LowonganModel();
+        $data = [
+            'lowongan' => $lowongan->asArray()->paginate(9, 'group1'),
+            'pager' => $lowongan->pager,
+        ];
+        return view('lowongan/lowongan', $data);
+    }
     public function findbyid($id): string
     {
+
         $detail = $this->lowonganModel->where('id', $id)->first();
         
-        return view('detail', compact('detail'));
+        return view('lowongan/detail', compact('detail'));
     }
     public function search()
     {
@@ -25,20 +34,21 @@ class Lowongans extends BaseController
         $lowonganModel = new LowonganModel();
 
         if ($keyword) {
-            $lowongan = $lowonganModel
+            $lowonganModel = $lowonganModel
                 ->like('judul_lowongan', $keyword, 'both')
                 ->orLike('detail_lengkap', $keyword, side: 'both')
-                ->orLike('nama_perusahaan', $keyword, 'both')
-                ->findAll();
-        } else {
-            $lowongan = $lowonganModel->findAll();
+                ->orLike('nama_perusahaan', $keyword, 'both');
         }
+        $data = [
+            'lowongan' => $lowonganModel->asArray()->paginate(9, 'group1'),
+            'pager' => $lowonganModel->pager,
+        ];
 
-        return view('search', ['lowongan' => $lowongan]);
+        return view('lowongan/lowongan', $data);
     }   
     public function tambah()
     {
-        return view ('tambah');
+        return view ('lowongan/tambah');
     }   
     public function simpan()
     {
@@ -69,7 +79,7 @@ class Lowongans extends BaseController
         if (!$data['lowongan']) {
             return redirect()->to('/lowongan')->with('error','');
         }
-        return view('edit', compact('data'));
+        return view('lowongan/edit', compact('data'));
     }
     public function update($id){
         $lowonganModel = new LowonganModel();
@@ -96,5 +106,11 @@ class Lowongans extends BaseController
         }
         $lowonganModel->delete($id);
         return redirect()->to('/lowongan')->with('success','Lowongan Berhasil Dihapus');
+    }
+    public function daftar($slug) 
+    {
+        $lowonganModel = new LowonganModel();
+        $judul = $lowonganModel->findAll();
+        return view('lowongan/daftar', compact('judul'));
     }
 }

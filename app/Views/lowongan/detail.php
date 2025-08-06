@@ -46,7 +46,7 @@
 </head>
 <body class="min-h-screen">
     <!-- Navbar include -->
-    <?= $this->include('layout/navbar') ?>
+    <?= view('layout/navbar.php'); ?>
 
     <main class="container mx-auto px-4 py-12 lg:py-16 mt-20">
         <?php if (!empty($detail) && is_array($detail)) : ?>
@@ -104,7 +104,7 @@
                                 </div>
                             </div>
 
-                            <a href="mailto:hr@example.com?subject=Application for <?= urlencode($detail['judul_lowongan'] ?? 'Job') ?>"
+                            <a href="<?= base_url(slugify($detail['judul_lowongan']) . '/daftar') ?>"
                                class="w-full mt-8 inline-block text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-sm hover:shadow-md">
                                 Lamar Sekarang
                             </a>
@@ -127,7 +127,7 @@
     </main>
 
     <!-- Include Footer -->
-    <?php include('layout/footer.php') ?>
+    <?= view('layout/footer.php'); ?>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

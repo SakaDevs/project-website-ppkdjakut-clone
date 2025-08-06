@@ -19,7 +19,7 @@
 </head>
 <body class="min-h-screen">
     <!-- Navbar include -->
-    <?= $this->include('layout/navbar') ?>
+    <?= view('layout/navbar.php'); ?>
 
     <main class="container mx-auto px-4 py-12 lg:py-16 mt-20">
         <div class="max-w-4xl mx-auto" data-aos="fade-up">
@@ -93,7 +93,8 @@
     </main>
 
     <!-- Include Footer -->
-    <?php include('layout/footer.php') ?>
+    <?= view('layout/footer.php'); ?>
+
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

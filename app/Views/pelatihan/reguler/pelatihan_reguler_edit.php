@@ -21,8 +21,8 @@
         }
     </style>
 </head>
-<?php include('layout/navbar.php') ?>
-<body class="bg-gray-50 min-h-screen py-10 px-4">
+<?= view('layout/navbar.php'); ?>
+<body class="min-h-screen">
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100 justify-center mt-20" data-aos="fade-up" duration="3000">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tambah Pelatihan Baru</h2>
         <?php if (session()->getFlashdata('errors')): ?>
@@ -35,7 +35,7 @@
             </div>
         <?php endif; ?>
         <?php foreach($data as $key): ?>
-        <form action="<?= base_url('pelatihan/MTU/save/' . $key['id']) ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url('pelatihan/regular/save/' . $key['id']) ?>" method="post" enctype="multipart/form-data">
             <div class="mb-4">
                 <label class="block font-medium text-gray-700">Judul Pelatihan</label>
                 <input type="text" name="nama_pelatihan" class="w-full p-3 border border-gray-300 rounded-xl" value="<?= $key['nama_pelatihan'] ?>" required>
@@ -73,6 +73,7 @@
         </form>
         <?php endforeach; ?>
     </div>
+    <?= view('layout/footer.php'); ?>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
