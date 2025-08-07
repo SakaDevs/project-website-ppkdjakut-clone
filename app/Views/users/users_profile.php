@@ -72,6 +72,10 @@
                         <label class="block text-sm font-medium text-gray-500">Phone Number</label>
                         <p class="text-lg text-gray-800 font-semibold"><?= htmlspecialchars($detail->phone_number ?? 'Not Set') ?></p>
                     </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-500">Gender</label>
+                        <p class="text-lg text-gray-800 font-semibold"><?= htmlspecialchars($detail->gender ?? 'Not Set') ?></p>
+                    </div>
                 </div>
 
                 <!-- Action Buttons -->

@@ -14,40 +14,40 @@
 
             <div class="lg:col-span-2">
                 <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="transition-colors hover:text-white">Bahasa Inggris Untuk Tenaga Administrasi Profesional</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Pemasangan Instalasi Otomasi Listrik Industri</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Teknisi AC Residential Level 3</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Service Sepeda Motor Injeksi</a></li>
+                    <li><a href="bahasa-inggris" class="transition-colors hover:text-white">Bahasa Inggris Untuk Tenaga Administrasi Profesional</a></li>
+                    <li><a href="listrik-industri" class="transition-colors hover:text-white">Pemasangan Instalasi Otomasi Listrik Industri</a></li>
+                    <li><a href="pendingin" class="transition-colors hover:text-white">Teknisi AC Residential Level 3</a></li>
+                    <li><a href="otomotif" class="transition-colors hover:text-white">Service Sepeda Motor Injeksi</a></li>
                 </ul>
             </div>
 
             <div class="lg:col-span-2">
                 <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="transition-colors hover:text-white">Operator Excavator</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Operator Forklift</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Desainer Grafis Madya</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Teknisi Komputer dan Jaringan</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Junior Web Developer</a></li>
+                    <li><a href="excavator" class="transition-colors hover:text-white">Operator Excavator</a></li>
+                    <li><a href="forklift" class="transition-colors hover:text-white">Operator Forklift</a></li>
+                    <li><a href="desain-grafis-madya" class="transition-colors hover:text-white">Desainer Grafis Madya</a></li>
+                    <li><a href="teknik-komputer-jaringan" class="transition-colors hover:text-white">Teknisi Komputer dan Jaringan</a></li>
+                    <li><a href="junior-web-developer" class="transition-colors hover:text-white">Junior Web Developer</a></li>
                 </ul>
             </div>
 
             <div class="lg:col-span-2">
                 <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="transition-colors hover:text-white">Cyber Security</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Junior Android Developer</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Associate Data Scientist</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Editor Video</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Data Management Staff</a></li>
+                    <li><a href="cyber-security" class="transition-colors hover:text-white">Cyber Security</a></li>
+                    <li><a href="junior-android-developer" class="transition-colors hover:text-white">Junior Android Developer</a></li>
+                    <li><a href="associate-data-scientist" class="transition-colors hover:text-white">Associate Data Scientist</a></li>
+                    <li><a href="editor-video" class="transition-colors hover:text-white">Editor Video</a></li>
+                    <li><a href="data-management-staff" class="transition-colors hover:text-white">Data Management Staff</a></li>
                 </ul>
             </div>
 
             <div class="lg:col-span-2">
                 <ul class="space-y-3 text-sm">
-                    <li><a href="#" class="transition-colors hover:text-white">Penjahitan Busana</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Perawatan Kecantikan</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Barista</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Penyiapan Layanan Produk Makanan dan Minuman</a></li>
-                    <li><a href="#" class="transition-colors hover:text-white">Perhotelan</a></li>
+                    <li><a href="penjahitan-busana" class="transition-colors hover:text-white">Penjahitan Busana</a></li>
+                    <li><a href="perawatan-kecantikan" class="transition-colors hover:text-white">Perawatan Kecantikan</a></li>
+                    <li><a href="barista" class="transition-colors hover:text-white">Barista</a></li>
+                    <li><a href="penyiapan-layanan-produk-makanan-dan-minuman" class="transition-colors hover:text-white">Penyiapan Layanan Produk Makanan dan Minuman</a></li>
+                    <li><a href="perhotelan" class="transition-colors hover:text-white">Perhotelan</a></li>
                 </ul>
             </div>
         </div>

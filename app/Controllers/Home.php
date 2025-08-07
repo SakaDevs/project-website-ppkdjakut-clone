@@ -12,9 +12,26 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
-    public function jadwal(): string
+    
+    public function bahasainggris() 
     {
-        return view('jadwal');
+        return view('jurusan/bahasa-inggris');
+    }
+    public function listrikindustri() 
+    {
+        return view('jurusan/listrik-industri');
+    }
+    public function pendingin() 
+    {
+        return view('jurusan/pendingin');
+    }
+    public function otomotif() 
+    {
+        return view('jurusan/otomotif');
+    }
+    public function excavator() 
+    {
+        return view('jurusan/excavator');
     }
     
 }

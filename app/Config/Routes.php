@@ -52,6 +52,11 @@ $routes->get('pelatihan/MTU/search/','pelatihanmtucontroller::search');
 $routes->get('pelatihan/MTU/daftar/','pelatihanmtucontroller::daftar');
 $routes->post('pelatihan/MTU/daftar/success/','pelatihanmtucontroller::saveDaftar');
 
+$routes->get('bahasa-inggris','Home::bahasainggris');
+$routes->get('listrik-industri','Home::listrikindustri');
+$routes->get('pendingin','Home::pendingin');
+$routes->get('otomotif','Home::otomotif');
+$routes->get('excavator','Home::excavator');
 
 // users
 $routes->get('users/search', 'users::search',);
