@@ -98,6 +98,11 @@
 
                     <form action="<?= base_url('pelatihan/regular/daftar/success/') ?>" method="post" enctype="multipart/form-data" class="space-y-6" >
                         <?= csrf_field() ?>
+                        
+                        <input type="hidden" name="provinsi" id="provinsi_name">
+                        <input type="hidden" name="kota" id="kabupaten_name">
+                        <input type="hidden" name="kecamatan" id="kecamatan_name">
+                        <input type="hidden" name="kelurahan" id="kelurahan_name">
 
                         <div>
                             <label class="block mb-2 font-medium text-gray-700">Nama Lengkap</label>
@@ -214,7 +219,33 @@
                                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
                         </div>
 
-                        <div class="grid grid-cols-2 gap-6">
+
+                            <div>
+                                <label for="provinsi" class="block mb-2 font-medium text-gray-700">Provinsi</label>
+                                <select id="provinsi" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">-- Pilih Provinsi --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="kota" class="block mb-2 font-medium text-gray-700">Kabupaten/Kota</label>
+                                <select id="kota" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">-- Pilih Kabupaten/Kota --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="kecamatan" class="block mb-2 font-medium text-gray-700">Kecamatan</label>
+                                <select id="kecamatan" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">-- Pilih Kecamatan --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="kelurahan" class="block mb-2 font-medium text-gray-700">Kelurahan</label>
+                                <select id="kelurahan" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">-- Pilih Kelurahan --</option>
+                                </select>
+                            </div>
+
+                          <div class="grid grid-cols-2 gap-6">
                             <div>
                                 <label class="block mb-2 font-medium text-gray-700">RT</label>
                                 <input type="number" name="rt" required
@@ -226,46 +257,7 @@
                                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
                             </div>
                         </div>
-
-                        <div>
-                            <label class="block mb-2 font-medium text-gray-700">Kelurahan</label>
-                            <select name="kelurahan" required
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                <option value="">-- Pilih Kelurahan --</option>
-                                <option>Cilincing</option>
-                                <option>Kalibaru</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block mb-2 font-medium text-gray-700">Kecamatan</label>
-                            <select name="kecamatan" required
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                <option value="">-- Pilih Kecamatan --</option>
-                                <option>Cilincing</option>
-                                <option>Kelapa Gading</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block mb-2 font-medium text-gray-700">Kota</label>
-                            <select name="kota" required
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                <option>Jakarta Utara</option>
-                                <option>Jakarta Timur</option>
-                                <option>Jakarta Selatan</option>
-                                <option>Jakarta Pusat</option>
-                                <option>Jakarta Barat</option>
-                                <option>Kepulauan Seribu</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block mb-2 font-medium text-gray-700">Provinsi</label>
-                            <select name="provinsi" required
-                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                <option>DKI Jakarta</option>
-                            </select>
-                        </div>
-
+                            
                         <div>
                             <label class="block mb-2 font-medium text-gray-700">Ukuran Baju & Sepatu</label>
                             <input type="text" name="ukuran"
@@ -324,17 +316,102 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                offset: 120,
-                delay: 0,
-                duration: 400,
-                easing: 'ease',
-                once: false,
-                mirror: false,
-                anchorPlacement: 'top-bottom',
+        AOS.init({ once: true });
+
+        const provinsiSelect = document.getElementById('provinsi');
+        const kabupatenSelect = document.getElementById('kota');
+        const kecamatanSelect = document.getElementById('kecamatan');
+        const kelurahanSelect = document.getElementById('kelurahan');
+
+        const provinsiNameInput = document.getElementById('provinsi_name');
+        const kabupatenNameInput = document.getElementById('kabupaten_name');
+        const kecamatanNameInput = document.getElementById('kecamatan_name');
+        const kelurahanNameInput = document.getElementById('kelurahan_name');
+
+        fetch('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json')
+            .then(response => response.json())
+            .then(provinces => {
+                provinces.forEach(provinsi => {
+                    const option = document.createElement('option');
+                    option.value = provinsi.id;
+                    option.textContent = provinsi.name;
+                    provinsiSelect.appendChild(option);
+                });
             });
+
+        provinsiSelect.addEventListener('change', function () {
+            const selectedId = this.value;
+            provinsiNameInput.value = this.options[this.selectedIndex].textContent;
+            
+            kabupatenSelect.innerHTML = '<option value="">-- Pilih Kabupaten/Kota --</option>';
+            kecamatanSelect.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+            kelurahanSelect.innerHTML = '<option value="">-- Pilih Kelurahan --</option>';
+            kabupatenNameInput.value = '';
+            kecamatanNameInput.value = '';
+            kelurahanNameInput.value = '';
+
+            if (selectedId) {
+                fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${selectedId}.json`)
+                    .then(response => response.json())
+                    .then(regencies => {
+                        regencies.forEach(kabupaten => {
+                            const option = document.createElement('option');
+                            option.value = kabupaten.id;
+                            option.textContent = kabupaten.name;
+                            kabupatenSelect.appendChild(option);
+                        });
+                    });
+            }
         });
+
+        kabupatenSelect.addEventListener('change', function () {
+            const selectedId = this.value;
+            kabupatenNameInput.value = this.options[this.selectedIndex].textContent;
+
+            kecamatanSelect.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+            kelurahanSelect.innerHTML = '<option value="">-- Pilih Kelurahan --</option>';
+            kecamatanNameInput.value = '';
+            kelurahanNameInput.value = '';
+
+            if (selectedId) {
+                fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/districts/${selectedId}.json`)
+                    .then(response => response.json())
+                    .then(districts => {
+                        districts.forEach(kecamatan => {
+                            const option = document.createElement('option');
+                            option.value = kecamatan.id;
+                            option.textContent = kecamatan.name;
+                            kecamatanSelect.appendChild(option);
+                        });
+                    });
+            }
+        });
+
+        kecamatanSelect.addEventListener('change', function () {
+            const selectedId = this.value;
+            kecamatanNameInput.value = this.options[this.selectedIndex].textContent;
+
+            kelurahanSelect.innerHTML = '<option value="">-- Pilih Kelurahan --</option>';
+            kelurahanNameInput.value = '';
+            
+            if (selectedId) {
+                fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/villages/${selectedId}.json`)
+                    .then(response => response.json())
+                    .then(villages => {
+                        villages.forEach(kelurahan => {
+                            const option = document.createElement('option');
+                            option.value = kelurahan.id;
+                            option.textContent = kelurahan.name;
+                            kelurahanSelect.appendChild(option);
+                        });
+                    });
+            }
+        });
+        
+        kelurahanSelect.addEventListener('change', function () {
+            kelurahanNameInput.value = this.options[this.selectedIndex].textContent;
+        });
+
     </script>
 </body>
 </html>

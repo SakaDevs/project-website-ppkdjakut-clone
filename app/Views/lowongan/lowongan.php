@@ -41,7 +41,7 @@
     <?= view('layout/navbar.php'); ?>
 
     <div class="container mx-auto px-4 py-8 mt-20">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-8xl mx-auto">
             <div class="text-center mb-12" data-aos="fade-down">
                 <h1 class="text-4xl font-bold text-gray-800 mb-4">Lowongan Pekerjaan</h1>
                 
@@ -66,50 +66,45 @@
                 </form>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-duration="800">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" data-aos="fade-up" data-aos-duration="800">
                 <?php if(!empty($lowongan)): ?>
                     <?php foreach ($lowongan as $row): ?>
-                        <div class="job-card bg-white rounded-xl border border-gray-200 overflow-hidden p-6">
-                            <!-- Poster Image -->
+                        <div class="job-card bg-white rounded-xl border border-gray-200 overflow-hidden p-4">
                             <img class="w-full rounded-lg object-contain mb-5 shadow-sm" 
                                  src="<?= base_url('uploads/foto_lowongan/' . $row['gambar_poster']) ?>" 
                                  alt="<?= esc($row['judul_lowongan']) ?>" 
                                  onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Image+Not+Found';" />
 
-                            <!-- Job Title -->
                             <h3 class="text-xl font-bold text-gray-900 mb-1">
                                 <?= esc($row['judul_lowongan']) ?>
                             </h3>
 
-                            <!-- Company Name -->
                             <p class="text-gray-600 mb-4 text-sm font-medium">
                                 <?= esc($row['nama_perusahaan']) ?>
                             </p>
 
-                            <!-- Requirements (Details) -->
                             <div class="text-gray-700 text-sm mb-4 flex-grow">
                                 <p class="font-semibold mb-2 text-gray-800">Requirements:</p>
-                                <!-- Using line-clamp to keep card sizes consistent -->
                                 <div class="prose prose-sm text-gray-600 line-clamp-4">
                                     <?= nl2br(esc($row['detail_lengkap'])) ?>
                                 </div>
                             </div>
-
-                            <!-- Card Footer -->    
+  
                             <div class="mt-auto pt-5 border-t border-gray-100">
                                 <div class="flex justify-between items-center">
-                                    <!-- Posting Date -->
-                                    <span class="text-xs text-gray-500">
-                                        Diposting: <?= isset($row['created_at']) ? date('d M Y', strtotime($row['created_at'])) : 'N/A' ?>
-                                    </span>
-                                    
-                                    <!-- Detail Button -->
+                                    <div class="flex flex-col">
+                                        <span class="text-xs text-gray-500">
+                                            Diposting: <?= isset($row['created_at']) ? date('d M Y', strtotime($row['created_at'])) : 'N/A' ?>
+                                        </span>
+                                        <span class="text-xs text-gray-500">
+                                            Diperbarui: <?= isset($row['created_at']) ? date('d M Y', strtotime($row['updated_at'])) : 'N/A' ?>
+                                        </span>
+                                    </div>
                                     <a href="/lowongan/detail/<?= $row['id'] ?>" class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-5 rounded-lg text-sm transition duration-300 shadow-sm hover:shadow-md">
                                         Detail
                                     </a>
                                 </div>
                                 
-                                <!-- Admin Buttons -->
                                 <?php if (auth()->loggedIn() && auth()->user()->inGroup('admin')): ?>
                                     <div class="flex items-center justify-end gap-4 mt-4 pt-4 border-t border-gray-100">
                                         <a href="/lowongan/edit/<?= $row['id']?>" class="text-sm font-medium text-green-600 hover:underline">
@@ -117,7 +112,7 @@
                                         </a>
                                         <form action="/lowongan/delete/<?= $row['id'] ?>" method="post" class="m-0" onsubmit="return confirm('Apakah kamu yakin ingin menghapus lowongan ini?');">
                                             <?= csrf_field() ?>
-                                            <!-- This button is now aligned because the mt-1 class was removed -->
+
                                             <button type="submit" class="text-sm font-medium text-red-600 hover:underline">
                                                 Delete
                                             </button>
@@ -139,24 +134,21 @@
                 <?php endif; ?>
             </div>
 
-            <!-- Pagination -->
             <div class="mt-12 flex justify-center">
                 <?= $pager->links('group1', 'tailwind_layout'); ?>
             </div>
         </div>
     </div>
         
-    <!-- Assuming footer.php is in the same directory or configured path -->
     <?= view('layout/footer.php'); ?>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS (Animate on Scroll) library
         AOS.init({
             offset: 100,
             duration: 600,
             easing: 'ease-in-out',
-            once: true, // Animation happens only once
+            once: true
         });
     </script>
 </body>

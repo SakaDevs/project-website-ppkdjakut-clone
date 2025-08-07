@@ -18,6 +18,7 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 min-h-screen">
     <?= view('layout/navbar.php'); ?>
 
@@ -31,7 +32,7 @@
                     </h1>
 
                     <h1 class="text-2xl">
-                        <?= $judul[0]['judul_lowongan'] ?>
+                        <?= $judul['judul_lowongan'] ?>
                     </h1>
 
                     <?php if (session()->getFlashdata('success')): ?>
@@ -61,7 +62,7 @@
                     <form action="<?= base_url('lowongan/daftar/success/') ?>" method="post" enctype="multipart/form-data" class="space-y-6">
                         <?= csrf_field() ?>
                         
-                        <input type="text" value="<?=$judul[0]['judul_lowongan']?>" readonly class="hidden" id="nama_lowongan" name="nama_lowongan">
+                        <input type="text" value="<?=$judul['judul_lowongan']?>" readonly class="hidden" id="nama_lowongan" name="nama_lowongan">
 
                         <div>
                             <label for="nama_lengkap" class="block mb-2 text-sm font-medium text-gray-700">Nama Lengkap (Penanggung Jawab)</label>
@@ -70,12 +71,12 @@
 
                         <div>
                             <label for="nomor_ktp" class="block mb-2 text-sm font-medium text-gray-700">Nomor KTP</label>
-                            <input type="nomor_ktp" id="nomor_ktp" name="nomor_ktp" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
+                            <input type="tel" id="nomor_ktp" name="nomor_ktp" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
                         </div>
 
                         <div>
                             <label for="nomor_hp" class="block mb-2 text-sm font-medium text-gray-700">Nomor Whatsapp / Telepon</label>
-                            <input type="tel" id="nomor_hp" name="nomor_hp" required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
+                            <input type="tel" id="nomor_hp" name="nomor_hp" placeholder="+62 812345678 " required class="form-input w-full p-3 bg-gray-50 border border-gray-300 rounded-lg text-sm" />
                         </div>
 
                         <div>

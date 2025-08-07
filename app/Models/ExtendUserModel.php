@@ -15,7 +15,13 @@ class ExtendUserModel extends ShieldUserModel
         $this->allowedFields = [
             ...$this->allowedFields,
             'full_name',
-            'phone_number'
+            'phone_number',
+            'kabupaten',
+            'provinsi',
+            'email',
+            'gender',
+            'kecamatan',
+            'kelurahan'
         ];
     }
 }

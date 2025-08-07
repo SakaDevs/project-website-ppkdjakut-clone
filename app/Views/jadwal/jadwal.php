@@ -21,7 +21,7 @@
 <?= view('layout/navbar.php'); ?>
 
     <section id="jadwal-pelatihan-section" class="py-12 lg:py-16 mt-15">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+        <div class="max-w-9l mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
             
             <!-- Section Header -->
             <div class="text-center mb-12">
@@ -76,15 +76,17 @@
                             <?php if (!empty($jadwal)): ?>
                                 <?php foreach($jadwal as $index => $raimu): ?>
                                     <tr class="border-b hover:bg-gray-50/50">
-                                        <td class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap"><?= esc(strtoupper($raimu['nama_program'])) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= esc($raimu['angkatan']) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= date('d M Y', strtotime($raimu['tutup_pendaftaran'])) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= date('d M Y', strtotime($raimu['mulai_seleksi'])) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= date('d M Y', strtotime($raimu['akhir_seleksi'])) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= date('d M Y', strtotime($raimu['mulai_pelatihan'])) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= date('d M Y', strtotime($raimu['akhir_pelatihan'])) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= date('d M Y', strtotime($raimu['awal_kompetensi'])) ?></td>
-                                        <td class="px-6 py-4 whitespace-nowrap"><?= date('d M Y', strtotime($raimu['akhir_kompetensi'])) ?></td>
+                                        <td class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap lg:whitespace-normal"><?= esc(strtoupper($raimu['nama_program'])) ?></td>
+                                        
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= esc($raimu['angkatan']) ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= date('d M Y', strtotime($raimu['tutup_pendaftaran'])) ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= date('d M Y', strtotime($raimu['mulai_seleksi'])) ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= date('d M Y', strtotime($raimu['akhir_seleksi'])) ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= date('d M Y', strtotime($raimu['mulai_pelatihan'])) ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= date('d M Y', strtotime($raimu['akhir_pelatihan'])) ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= date('d M Y', strtotime($raimu['awal_kompetensi'])) ?></td>
+                                        <td class="px-6 py-4 whitespace-nowrap lg:whitespace-normal"><?= date('d M Y', strtotime($raimu['akhir_kompetensi'])) ?></td>
+                                        
                                         <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')):?>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center justify-center gap-x-6">

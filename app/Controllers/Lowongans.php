@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\LowonganDaftar;
 use App\Models\LowonganModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
@@ -109,12 +110,56 @@ class Lowongans extends BaseController
     }
     public function daftar($slug) 
     {
+        helper('slug');
+
         $lowonganModel = new LowonganModel();
-        $judul = $lowonganModel->findAll();
+        $semuaLowongan = $lowonganModel->findAll();
+
+        $judul = null;
+
+        foreach($semuaLowongan as $lowongan) {
+            if (slugify($lowongan['judul_lowongan'])=== $slug) {
+                $judul = $lowongan;
+                break;
+                
+            }
+        }
         return view('lowongan/daftar', compact('judul'));
     }
     public function daftarSuccess()
     {
         
+        $namaLengkap = $this->request->getPost('nama_lengkap');
+        $data = [
+            'nama_lengkap' => $namaLengkap,
+            'nama_lowongan' => $this->request->getPost('nama_lowongan'),
+            'nomor_ktp' => $this->request->getPost('nomor_ktp'),
+            'nomor_hp' => $this->request->getPost('nomor_hp'),
+        ];
+        
+        $folderName = preg_replace('/[^a-zA-Z0-9_-]/', '_', strtolower($namaLengkap));
+        $basePath = FCPATH . 'uploads/foto_lowongan_daftar/' . $folderName;
+
+        $fotoFields = ['surat_permohonan', 'cv', 'sertifikat'];
+        foreach($fotoFields as $field) {
+            $file = $this->request->getFile($field);
+            
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                if ($file->getSize() > 2 * 1024 * 1024) {
+                    return redirect()->back()->with('error', ucfirst(str_replace('_', ' ', $field)) . ' maksimal 2MB.');
+                }
+                $allowedExt = ['jpg', 'jpeg', 'png', 'pdf'];
+                if (!in_array(strtolower($file->getExtension()), $allowedExt)) {
+                    return redirect()->back()->with('error', 'Format file ' . $field . ' harus JPG, PNG, atau PDF.');
+                }
+                $newName = $field . '_' . time() . $file->getExtension();
+                $randomName = $file->getRandomName();
+                $file->move($basePath, $newName);
+                $data[$field] = $randomName;
+            }
+        }
+        $lowonganModel = new LowonganDaftar();
+        $lowonganModel->insert($data);
+        return redirect()->to('/lowongan')->with('success', 'pendaftaran berhasil');
     }
 }

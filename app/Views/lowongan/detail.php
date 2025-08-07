@@ -45,7 +45,7 @@
     </style>
 </head>
 <body class="min-h-screen">
-    <!-- Navbar include -->
+
     <?= view('layout/navbar.php'); ?>
 
     <main class="container mx-auto px-4 py-12 lg:py-16 mt-20">
@@ -96,10 +96,15 @@
                                     </div>
                                 </div>
                                 <div class="flex items-start">
-                                    <i class="bi bi-calendar-event text-cyan-500 text-xl mr-3 mt-1"></i>
                                     <div>
-                                        <h3 class="font-semibold text-gray-800">Tanggal Posting</h3>
-                                        <p><?= htmlspecialchars(date('d F Y', strtotime($detail['tanggal_posting'] ?? date('Y-m-d')))) ?></p>
+                                        <h3 class="font-semibold text-gray-800">Diposting</h3>
+                                        <p><?= htmlspecialchars(date('d F Y', strtotime($detail['created_at'] ?? date('Y-m-d')))) ?></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Diperbarui</h3>
+                                        <p><?= htmlspecialchars(date('d F Y', strtotime($detail['updated_at'] ?? date('Y-m-d')))) ?></p>
                                     </div>
                                 </div>
                             </div>

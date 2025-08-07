@@ -41,9 +41,9 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
-    public $register = [
+    public $registration = [
         'email' => [
-            'label' => 'Email',
+            'label' => 'secret',
             'rules' => 'required|valid_email|is_unique[users.email]',
             'errors' => [
                 'required' => '{field} wajib diisi.',
@@ -59,6 +59,35 @@ class Validation extends BaseConfig
             'label' => 'Nama Pengguna',
             'rules' => 'required|alpha_numeric|min_length[4]|is_unique[users.username]',
         ],
+         'phone_number' => [
+            'label' => 'Nomor Telepon',
+            'rules' => 'required|numeric|min_length[8]|max_length[15]',
+            'errors' => [
+                'numeric' => '{field} hanya boleh angka.',
+                'min_length' => '{field} terlalu pendek.',
+                'max_length' => '{field} terlalu panjang.',
+            ],
+        ],
+        'kabupaten' => [
+            'label' => 'kabupaten',
+            'rules' => 'required'
+        ],
+        'provinsi' => [
+            'label' => 'provinsi',
+            'rules' => 'required'
+        ],
+        'kecamatan' => [
+            'label' => 'kecamatan',
+            'rules' => 'required'
+        ],
+        'kelurahan' => [
+            'label' => 'kelurahan',
+            'rules' => 'required'
+        ],
+        'gender' => [
+            'label' => 'gender',
+            'rules' => 'required'
+        ],
         'password' => [
             'label' => 'Kata Sandi',
             'rules' => 'required|min_length[6]',
@@ -70,15 +99,7 @@ class Validation extends BaseConfig
                 'matches' => 'Kata sandi tidak sama!',
             ]
         ],
-        'phone_number' => [
-            'label' => 'Nomor Telepon',
-            'rules' => 'required|numeric|min_length[8]|max_length[15]',
-            'errors' => [
-                'numeric' => '{field} hanya boleh angka.',
-                'min_length' => '{field} terlalu pendek.',
-                'max_length' => '{field} terlalu panjang.',
-            ],
-        ],
+       
     ];
     
 }

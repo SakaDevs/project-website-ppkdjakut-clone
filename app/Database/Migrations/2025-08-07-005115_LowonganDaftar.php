@@ -15,7 +15,7 @@ class LowonganDaftar extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'judul_lowongan' => [
+            'nama_lowongan' => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
                 'null'=> true,
@@ -25,22 +25,27 @@ class LowonganDaftar extends Migration
                 'constraint'     => 255,
                 'null'=> true,
             ],
-            'nomor' => [
+            'nomor_ktp' => [
                 'type'=> 'INT',
                 'constraint' => 20,
                 'null'=> true,
             ],
-            'maps' => [
-                'type'=> 'VARCHAR',
-                'constraint' => 255,
+            'nomor_hp' => [
+                'type'=> 'INT',
+                'constraint' => 20,
                 'null'=> true,
             ],
-            'minat_pelatihan' => [
+            'cv' => [
                 'type'=> 'VARCHAR',
                 'constraint' => 255,
                 'null'=> true,
             ],
             'surat_permohonan' => [
+                'type'=> 'VARCHAR',
+                'constraint' => 255,
+                'null'=> true,
+            ],
+            'sertifikat`' => [
                 'type'=> 'VARCHAR',
                 'constraint' => 255,
                 'null'=> true,
