@@ -30,7 +30,7 @@ $routes->post('lowongan/simpan', 'Lowongans::simpan');
 $routes->post('lowongan/daftar/success', 'Lowongans::daftarsuccess');
 $routes->get('(:segment)/daftar', 'Lowongans::daftar/$1');
 
-
+// pelatihan
 $routes->get('pelatihan/regular/tambah', 'pelatihanregularcontroller::tambah');
 $routes->get('pelatihan/regular/daftar', 'pelatihanregularcontroller::daftar');
 $routes->post('pelatihan/regular/add', 'pelatihanregularcontroller::add');
