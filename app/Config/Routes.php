@@ -57,6 +57,21 @@ $routes->get('listrik-industri','Home::listrikindustri');
 $routes->get('pendingin','Home::pendingin');
 $routes->get('otomotif','Home::otomotif');
 $routes->get('excavator','Home::excavator');
+$routes->get('forklift','Home::forklift');
+$routes->get('desain-grafis-madya','Home::dgm');
+$routes->get('teknik-komputer-jaringan','Home::tkj');
+$routes->get('junior-web-developer','Home::jwd');
+$routes->get('cyber-security','Home::cyber');
+$routes->get('junior-android-developer','Home::jad');
+$routes->get('associate-data-scientist','Home::datascientis');
+$routes->get('editor-video','Home::editorvideo');
+$routes->get('editor','Home::editorvideo');
+$routes->get('data-management-staff','Home::dms');
+$routes->get('penjahitan-busana','Home::busana');
+$routes->get('perawatan-kecantikan','Home::kecantikan');
+$routes->get('barista','Home::barista');
+$routes->get('penyiapan-layanan-produk-makanan-dan-minuman','Home::mdm');
+$routes->get('perhotelan','Home::perhotelan');
 
 // users
 $routes->get('users/search', 'users::search',);

@@ -48,87 +48,85 @@
 </head>
 <body class="text-gray-700">
 <?= view('layout/navbar') ?>
-    <section class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+   <section class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
     <!-- Sidebar Kurikulum dan SKKNI -->
-    <aside class="md:col-span-1 space-y-6">
-        <div class="border rounded-lg p-4 bg-white shadow-sm">
-        <h2 class="text-lg font-semibold mb-4 text-gray-800">Kurikulum</h2>
-        <ul class="space-y-2 text-sm text-gray-700 list-none">
-            <li>• Melaksanakan Keselamatan dan Kesehatan Kerja (K3)</li>
-            <li>• Membaca dan memahami gambar teknik</li>
-            <li>• Menggunakan peralatan dan perlengkapan bengkel</li>
-            <li>• Menggunakan alat ukur</li>
-            <li>• Merawat celah klep (renggang klep)</li>
-            <li>• Memeriksa & mengganti oli mesin, oli transmisi, & filter oli</li>
-            <li>• Memeriksa sistem pelumasan mesin</li>
-            <li>• Melakukan perawatan busi</li>
-            <li>• Merawat sistem pendinginan</li>
-            <li>• Merawat sistem injeksi</li>
-            <li>• Menyetel free play throttle gas</li>
-            <li>• Merawat filter udara</li>
-            <li>• Merawat sistem kopling</li>
-            <li>• Memperbaiki sistem pengapian</li>
-            <li>• Merawat sistem pengereman</li>
-            <li>• Merawat sistem kemudi</li>
-            <li>• Memeriksa keolengan roda</li>
-            <li>• Mengganti rantai roda</li>
-            <li>• Merawat baterai</li>
-            <li>• Merawat sistem sinyal dan penerangan</li>
-            <li>• Membersihkan injector</li>
-            <li>• Mendiagnosis sistem injeksi</li>
-            <li>• Mengoperasikan alat diagnostik</li>
-        </ul>
+    <aside class="md:col-span-1 space-y-6" data-aos="fade-right" data-aos-duration="800">
+        <div class="border rounded-lg p-4 bg-white shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-lg font-semibold mb-4 text-gray-800">Kurikulum</h2>
+            <ul class="space-y-2 text-sm text-gray-700 list-none">
+                <li>• Melaksanakan Keselamatan dan Kesehatan Kerja (K3)</li>
+                <li>• Membaca dan memahami gambar teknik</li>
+                <li>• Menggunakan peralatan dan perlengkapan bengkel</li>
+                <li>• Menggunakan alat ukur</li>
+                <li>• Merawat celah klep (renggang klep)</li>
+                <li>• Memeriksa & mengganti oli mesin, oli transmisi, & filter oli</li>
+                <li>• Memeriksa sistem pelumasan mesin</li>
+                <li>• Melakukan perawatan busi</li>
+                <li>• Merawat sistem pendinginan</li>
+                <li>• Merawat sistem injeksi</li>
+                <li>• Menyetel free play throttle gas</li>
+                <li>• Merawat filter udara</li>
+                <li>• Merawat sistem kopling</li>
+                <li>• Memperbaiki sistem pengapian</li>
+                <li>• Merawat sistem pengereman</li>
+                <li>• Merawat sistem kemudi</li>
+                <li>• Memeriksa keolengan roda</li>
+                <li>• Mengganti rantai roda</li>
+                <li>• Merawat baterai</li>
+                <li>• Merawat sistem sinyal dan penerangan</li>
+                <li>• Membersihkan injector</li>
+                <li>• Mendiagnosis sistem injeksi</li>
+                <li>• Mengoperasikan alat diagnostik</li>
+            </ul>
         </div>
-        <div class="border p-4 rounded-lg bg-gray-50 shadow-sm">
-        <h3 class="text-sm font-medium text-gray-700 mb-2">SKKNI</h3>
-        <p class="text-sm text-gray-600 mb-3">No. 147 Tahun 2019</p>
-        <a href="/pelatihan/regular/daftar" class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700">
-            Daftar
-        </a>
+        <div class="border p-4 rounded-lg bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-sm font-medium text-gray-700 mb-2">SKKNI</h3>
+            <p class="text-sm text-gray-600 mb-3">No. 147 Tahun 2019</p>
+            <a href="/pelatihan/regular/daftar" class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700">
+                Daftar
+            </a>
         </div>
     </aside>
 
     <!-- Konten Utama -->
-    <div class="md:col-span-2 space-y-6">
-        <img src="https://ppkdju.com/static/img/regular/1024x648/motor.jpg" alt="Pelatihan Teknik Sepeda Motor" class="rounded-md shadow-md w-full max-h-[500px] object-cover">
+    <div class="md:col-span-2 space-y-6" data-aos="fade-left" data-aos-duration="800">
+        <img src="https://ppkdju.com/static/img/regular/1024x648/motor.jpg" alt="Pelatihan Teknik Sepeda Motor" class="rounded-md shadow-md w-full max-h-[500px] object-cover" data-aos="zoom-in" data-aos-delay="100">
 
-        <div>
-        <h1 class="text-2xl font-bold text-gray-800 mb-3">Teknik Sepeda Motor</h1>
-        <p class="text-gray-700 leading-relaxed">
-            Pelatihan Kejuruan Otomotif Sepeda Motor ini dirancang untuk mempersiapkan peserta dalam menguasai berbagai keterampilan teknis yang diperlukan untuk memelihara, memperbaiki, dan merawat sepeda motor—khususnya aspek perawatan dan perbaikan mesin serta sistem pendukungnya. Tujuannya, mencetak teknisi yang profesional dan kompeten sesuai dengan standar industri otomotif. :contentReference[oaicite:0]{index=0}
-        </p>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <h1 class="text-2xl font-bold text-gray-800 mb-3">Teknik Sepeda Motor</h1>
+            <p class="text-gray-700 leading-relaxed">
+                Pelatihan Kejuruan Otomotif Sepeda Motor ini dirancang untuk mempersiapkan peserta dalam menguasai berbagai keterampilan teknis yang diperlukan untuk memelihara, memperbaiki, dan merawat sepeda motor—khususnya aspek perawatan dan perbaikan mesin serta sistem pendukungnya. Tujuannya, mencetak teknisi yang profesional dan kompeten sesuai dengan standar industri otomotif.
+            </p>
         </div>
 
         <div class="space-y-4 prose-custom">
-        <!-- Contoh penjabaran sebagian kurikulum -->
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Melaksanakan Keselamatan dan Kesehatan Kerja (K3)</h2>
-            <p class="text-gray-700 text-sm">
-            Peserta akan dibekali prosedur K3 penting untuk lingkungan bengkel, mulai dari penggunaan APD hingga identifikasi bahaya kerja.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Membaca dan memahami gambar teknik</h2>
-            <p class="text-gray-700 text-sm">
-            Melatih kemampuan membaca blueprint atau diagram komponen motor penting untuk diagnosis dan perbaikan yang presisi.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Menggunakan alat ukur</h2>
-            <p class="text-gray-700 text-sm">
-            Peserta belajar menggunakan alat ukur seperti feeler gauge, mikrometer, dan multimeter sesuai dengan prosedur kerja.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Perawatan sistem injeksi dan pendinginan</h2>
-            <p class="text-gray-700 text-sm">
-            Fokus pada perawatan sistem injeksi bahan bakar dan sistem pendinginan motor agar performa tetap optimal.
-            </p>
-        </div>
-        <!-- Tambahkan detail lainnya sesuai kebutuhan -->
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h2 class="text-lg font-semibold text-gray-800">Melaksanakan Keselamatan dan Kesehatan Kerja (K3)</h2>
+                <p class="text-gray-700 text-sm">
+                    Peserta akan dibekali prosedur K3 penting untuk lingkungan bengkel, mulai dari penggunaan APD hingga identifikasi bahaya kerja.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-lg font-semibold text-gray-800">Membaca dan memahami gambar teknik</h2>
+                <p class="text-gray-700 text-sm">
+                    Melatih kemampuan membaca blueprint atau diagram komponen motor penting untuk diagnosis dan perbaikan yang presisi.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-lg font-semibold text-gray-800">Menggunakan alat ukur</h2>
+                <p class="text-gray-700 text-sm">
+                    Peserta belajar menggunakan alat ukur seperti feeler gauge, mikrometer, dan multimeter sesuai dengan prosedur kerja.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-lg font-semibold text-gray-800">Perawatan sistem injeksi dan pendinginan</h2>
+                <p class="text-gray-700 text-sm">
+                    Fokus pada perawatan sistem injeksi bahan bakar dan sistem pendinginan motor agar performa tetap optimal.
+                </p>
+            </div>
         </div>
     </div>
-    </section>
+</section>
 
 
 

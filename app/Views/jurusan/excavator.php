@@ -50,80 +50,81 @@
 <?= view('layout/navbar') ?>
 <section class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
     <!-- Sidebar Kurikulum dan SKKNI -->
-    <aside class="md:col-span-1 space-y-6">
-        <div class="border rounded-lg p-4 bg-white shadow-sm">
-        <h2 class="text-lg font-semibold mb-4 text-gray-800">Kurikulum</h2>
-        <ul class="space-y-2 text-sm text-gray-700 list-none">
-            <li>• Menerapkan Keselamatan & Kesehatan Kerja (K3) dan Lingkungan Hidup</li>
-            <li>• Komunikasi dan Kerja Sama di Tempat Kerja</li>
-            <li>• Pemeliharaan Harian Excavator</li>
-            <li>• Pengoperasian Excavator untuk Pembuatan Saluran (Trenching)</li>
-            <li>• Pengoperasian Excavator untuk Penggalian & Pemindahan Material</li>
-            <li>• Pengoperasian Excavator untuk Pembuatan Tanggul</li>
-        </ul>
+    <aside class="md:col-span-1 space-y-6" data-aos="fade-right">
+        <div class="border rounded-lg p-4 bg-white shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-lg font-semibold mb-4 text-gray-800">Kurikulum</h2>
+            <ul class="space-y-2 text-sm text-gray-700 list-none">
+                <li>• Menerapkan Keselamatan & Kesehatan Kerja (K3) dan Lingkungan Hidup</li>
+                <li>• Komunikasi dan Kerja Sama di Tempat Kerja</li>
+                <li>• Pemeliharaan Harian Excavator</li>
+                <li>• Pengoperasian Excavator untuk Pembuatan Saluran (Trenching)</li>
+                <li>• Pengoperasian Excavator untuk Penggalian & Pemindahan Material</li>
+                <li>• Pengoperasian Excavator untuk Pembuatan Tanggul</li>
+            </ul>
         </div>
-        <div class="border p-4 rounded-lg bg-gray-50 shadow-sm">
-        <h3 class="text-sm font-medium text-gray-700 mb-2">SKKNI</h3>
-        <p class="text-sm text-gray-600 mb-3">
-        Nomor KEP.91/MEN/V/2010 Tahun 2010
-        </p>
-        <a href="/pelatihan/regular/daftar" class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700">
-            Daftar
-        </a>
+        <div class="border p-4 rounded-lg bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-sm font-medium text-gray-700 mb-2">SKKNI</h3>
+            <p class="text-sm text-gray-600 mb-3">
+                Nomor KEP.91/MEN/V/2010 Tahun 2010
+            </p>
+            <a href="/pelatihan/regular/daftar" class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700">
+                Daftar
+            </a>
         </div>
     </aside>
 
     <!-- Konten Utama -->
-    <div class="md:col-span-2 space-y-6">
-        <img src="https://ppkdju.com/static/img/regular/1024x648/excavator.jpg" alt="Pelatihan Operator Excavator" class="rounded-md shadow-md w-full max-h-[500px] object-cover">
+    <div class="md:col-span-2 space-y-6" data-aos="fade-left">
+        <img src="https://ppkdju.com/static/img/regular/1024x648/excavator.jpg" alt="Pelatihan Operator Excavator" class="rounded-md shadow-md w-full max-h-[500px] object-cover" data-aos="zoom-in" data-aos-delay="100">
 
-        <div>
-        <h1 class="text-2xl font-bold text-gray-800 mb-3">Operator Excavator</h1>
-        <p class="text-gray-700 leading-relaxed">
-            Pelatihan Operator Excavator dirancang untuk membekali peserta dengan keterampilan teknis dan pengetahuan praktis dalam mengoperasikan excavator secara aman dan efisien di berbagai proyek—mulai dari penggalian, saluran, hingga pembangunan tanggul—dengan pendekatan teori dan praktik lapangan.
-        </p>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <h1 class="text-2xl font-bold text-gray-800 mb-3">Operator Excavator</h1>
+            <p class="text-gray-700 leading-relaxed">
+                Pelatihan Operator Excavator dirancang untuk membekali peserta dengan keterampilan teknis dan pengetahuan praktis dalam mengoperasikan excavator secara aman dan efisien di berbagai proyek—mulai dari penggalian, saluran, hingga pembangunan tanggul—dengan pendekatan teori dan praktik lapangan.
+            </p>
         </div>
 
         <div class="space-y-4 prose-custom">
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Menerapkan Keselamatan & Kesehatan Kerja (K3) dan Lingkungan Hidup</h2>
-            <p class="text-gray-700 text-sm">
-            Peserta akan diajarkan identifikasi bahaya, penggunaan APD, dan simulasi prosedur kerja aman serta kepedulian terhadap lingkungan kerja. 
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Komunikasi dan Kerja Sama di Tempat Kerja</h2>
-            <p class="text-gray-700 text-sm">
-            Melatih keterampilan komunikasi verbal/non-verbal, koordinasi tim, dan pemecahan konflik di lingkungan operasional excavator.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Pemeliharaan Harian Excavator</h2>
-            <p class="text-gray-700 text-sm">
-            Teknik pemeriksaan komponen utama, sistem hidrolik, kelistrikan, pelumasan, kebersihan unit, serta pembuatan laporan harian.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Pengoperasian Excavator – Pembuatan Saluran (Trenching)</h2>
-            <p class="text-gray-700 text-sm">
-            Teknik penggalian dan perataan tanah untuk membuat saluran sesuai spesifikasi teknis, dengan simulasi praktek.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Pengoperasian Excavator – Penggalian & Pemindahan Material</h2>
-            <p class="text-gray-700 text-sm">
-            Fokus pada teknik efisien penggalian dan pemindahan material dalam berbagai kondisi medan.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Pengoperasian Excavator – Pembuatan Tanggul</h2>
-            <p class="text-gray-700 text-sm">
-            Latih pengoperasian excavator untuk formasi tanggul dengan teknik penggalian dan penataan material yang sesuai dengan standar konstruksi.
-            </p>
-        </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h2 class="text-lg font-semibold text-gray-800">Menerapkan Keselamatan & Kesehatan Kerja (K3) dan Lingkungan Hidup</h2>
+                <p class="text-gray-700 text-sm">
+                    Peserta akan diajarkan identifikasi bahaya, penggunaan APD, dan simulasi prosedur kerja aman serta kepedulian terhadap lingkungan kerja. 
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-lg font-semibold text-gray-800">Komunikasi dan Kerja Sama di Tempat Kerja</h2>
+                <p class="text-gray-700 text-sm">
+                    Melatih keterampilan komunikasi verbal/non-verbal, koordinasi tim, dan pemecahan konflik di lingkungan operasional excavator.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-lg font-semibold text-gray-800">Pemeliharaan Harian Excavator</h2>
+                <p class="text-gray-700 text-sm">
+                    Teknik pemeriksaan komponen utama, sistem hidrolik, kelistrikan, pelumasan, kebersihan unit, serta pembuatan laporan harian.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-lg font-semibold text-gray-800">Pengoperasian Excavator – Pembuatan Saluran (Trenching)</h2>
+                <p class="text-gray-700 text-sm">
+                    Teknik penggalian dan perataan tanah untuk membuat saluran sesuai spesifikasi teknis, dengan simulasi praktek.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="500">
+                <h2 class="text-lg font-semibold text-gray-800">Pengoperasian Excavator – Penggalian & Pemindahan Material</h2>
+                <p class="text-gray-700 text-sm">
+                    Fokus pada teknik efisien penggalian dan pemindahan material dalam berbagai kondisi medan.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-lg font-semibold text-gray-800">Pengoperasian Excavator – Pembuatan Tanggul</h2>
+                <p class="text-gray-700 text-sm">
+                    Latih pengoperasian excavator untuk formasi tanggul dengan teknik penggalian dan penataan material yang sesuai dengan standar konstruksi.
+                </p>
+            </div>
         </div>
     </div>
-    </section>
+</section>
+
 
 <?= view('layout/footer') ?>
 

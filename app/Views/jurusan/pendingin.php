@@ -50,96 +50,98 @@
 <?= view('layout/navbar') ?>
     <section class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
     <!-- Sidebar Kurikulum dan SKKNI -->
-    <aside class="md:col-span-1 space-y-6">
-        <div class="border rounded-lg p-4 bg-white shadow-sm">
-        <h2 class="text-lg font-semibold mb-4 text-gray-800">Kurikulum</h2>
-        <ul class="space-y-2 text-sm text-gray-700 list-none">
-            <li>• Menerapkan prinsip‑prinsip Keselamatan dan Kesehatan Kerja di Tempat Kerja</li>
-            <li>• Menerapkan Prosedur‑prosedur Mutu</li>
-            <li>• Membaca Gambar Teknik</li>
-            <li>• Menggunakan Perkakas Tangan</li>
-            <li>• Mengukur Listrik/Elektronik</li>
-            <li>• Menyolder dengan Kuningan dan/atau Perak</li>
-            <li>• Mengisi Sistem Pendingin</li>
-            <li>• Merawat Mesin Refrigerasi Komersial dan Industri</li>
-        </ul>
+    <aside class="md:col-span-1 space-y-6" data-aos="fade-right">
+        <div class="border rounded-lg p-4 bg-white shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-lg font-semibold mb-4 text-gray-800">Kurikulum</h2>
+            <ul class="space-y-2 text-sm text-gray-700 list-none">
+                <li>• Menerapkan prinsip-prinsip Keselamatan dan Kesehatan Kerja di Tempat Kerja</li>
+                <li>• Menerapkan Prosedur-prosedur Mutu</li>
+                <li>• Membaca Gambar Teknik</li>
+                <li>• Menggunakan Perkakas Tangan</li>
+                <li>• Mengukur Listrik/Elektronik</li>
+                <li>• Menyolder dengan Kuningan dan/atau Perak</li>
+                <li>• Mengisi Sistem Pendingin</li>
+                <li>• Merawat Mesin Refrigerasi Komersial dan Industri</li>
+            </ul>
         </div>
-        <div class="border p-4 rounded-lg bg-gray-50 shadow-sm">
-        <h3 class="text-sm font-medium text-gray-700 mb-2">SKKNI</h3>
-        <p class="text-sm text-gray-600 mb-3">
-            No. 109 tahun 2018<br>
-            No. 41 tahun 2019
-        </p>
-        <a href="pelatihan/regular/daftar/" class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700">
-            Daftar
-        </a>
+        <div class="border p-4 rounded-lg bg-gray-50 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-sm font-medium text-gray-700 mb-2">SKKNI</h3>
+            <p class="text-sm text-gray-600 mb-3">
+                No. 109 tahun 2018<br>
+                No. 41 tahun 2019
+            </p>
+            <a href="pelatihan/regular/daftar/" class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700">
+                Daftar
+            </a>
         </div>
     </aside>
 
     <!-- Konten Utama -->
     <div class="md:col-span-2 space-y-6">
-        <img src="https://ppkdju.com/static/img/regular/1024x648/ac.jpg" alt="Pelatihan Teknik Pendingin" class="rounded-md shadow-md w-full max-h-[5   00px] object-cover">
+        <img src="https://ppkdju.com/static/img/regular/1024x648/ac.jpg" alt="Pelatihan Teknik Pendingin" 
+            class="rounded-md shadow-md w-full max-h-[500px] object-cover" 
+            data-aos="zoom-in">
 
-        <div>
-        <h1 class="text-2xl font-bold text-gray-800 mb-3">Teknik Pendingin</h1>
-        <p class="text-gray-700 leading-relaxed">
-            Pelatihan Teknik Pendingin ini dirancang untuk memberikan peserta pemahaman dan keterampilan praktis dalam bidang teknik pendinginan dan sistem refrigerasi, baik untuk aplikasi komersial maupun industri. Pelatihan ini sangat cocok bagi teknisi, mekanik, dan operator yang bekerja dengan sistem pendingin, maupun bagi mereka yang ingin meningkatkan kemampuan dalam perawatan dan pengoperasian sistem refrigerasi secara aman dan efisien.
-        </p>
+        <div data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-2xl font-bold text-gray-800 mb-3">Teknik Pendingin</h1>
+            <p class="text-gray-700 leading-relaxed">
+                Pelatihan Teknik Pendingin ini dirancang untuk memberikan peserta pemahaman dan keterampilan praktis dalam bidang teknik pendinginan dan sistem refrigerasi, baik untuk aplikasi komersial maupun industri. Pelatihan ini sangat cocok bagi teknisi, mekanik, dan operator yang bekerja dengan sistem pendingin, maupun bagi mereka yang ingin meningkatkan kemampuan dalam perawatan dan pengoperasian sistem refrigerasi secara aman dan efisien.
+            </p>
         </div>
 
         <!-- Penjabaran Kurikulum -->
         <div class="space-y-4 prose-custom">
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Menerapkan prinsip‑prinsip Keselamatan dan Kesehatan Kerja</h2>
-            <p class="text-gray-700 text-sm">
-            Peserta dibekali dengan prosedur K3 khusus di bidang refrigerasi, termasuk pengenalan bahaya, penggunaan APD, dan tanggap darurat.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Menerapkan Prosedur‑prosedur Mutu</h2>
-            <p class="text-gray-700 text-sm">
-            Pelatihan ini mencakup standar mutu dalam setiap tahap pekerjaan guna memastikan hasil yang berkualitas dan sesuai prosedur teknis.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Membaca Gambar Teknik</h2>
-            <p class="text-gray-700 text-sm">
-            Mengajarkan keterampilan membaca dan memahami gambar instalasi dan komponen sistem pendingin untuk pelaksanaan teknis yang presisi.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Menggunakan Perkakas Tangan</h2>
-            <p class="text-gray-700 text-sm">
-            Pelatihan penggunaan alat manual seperti obeng, kunci pas, dan cutter dengan teknik yang tepat dan aman.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Mengukur Listrik/Elektronik</h2>
-            <p class="text-gray-700 text-sm">
-            Mempelajari penggunaan multimeter dan alat ukur lainnya untuk mengukur tegangan, arus, dan resistansi dalam sistem pendingin.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Menyolder dengan Kuningan dan/atau Perak</h2>
-            <p class="text-gray-700 text-sm">
-            Teknik soldering yang benar untuk memastikan sambungan pipa dan komponen sistem refrigerasi tahan lama dan bebas kebocoran.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Mengisi Sistem Pendingin</h2>
-            <p class="text-gray-700 text-sm">
-            Pembekalan tentang cara mengisi refrigeran yang tepat ke sistem, termasuk pengetahuan jenis refrigeran dan cara mencegah kebocoran.
-            </p>
-        </div>
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">Merawat Mesin Refrigerasi Komersial dan Industri</h2>
-            <p class="text-gray-700 text-sm">
-            Teknik perawatan rutin seperti cleaning, pengecekan level refrigeran, dan diagnosis masalah umum pada sistem pendingin.
-            </p>
-        </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h2 class="text-lg font-semibold text-gray-800">Menerapkan prinsip-prinsip Keselamatan dan Kesehatan Kerja</h2>
+                <p class="text-gray-700 text-sm">
+                    Peserta dibekali dengan prosedur K3 khusus di bidang refrigerasi, termasuk pengenalan bahaya, penggunaan APD, dan tanggap darurat.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-lg font-semibold text-gray-800">Menerapkan Prosedur-prosedur Mutu</h2>
+                <p class="text-gray-700 text-sm">
+                    Pelatihan ini mencakup standar mutu dalam setiap tahap pekerjaan guna memastikan hasil yang berkualitas dan sesuai prosedur teknis.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-lg font-semibold text-gray-800">Membaca Gambar Teknik</h2>
+                <p class="text-gray-700 text-sm">
+                    Mengajarkan keterampilan membaca dan memahami gambar instalasi dan komponen sistem pendingin untuk pelaksanaan teknis yang presisi.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <h2 class="text-lg font-semibold text-gray-800">Menggunakan Perkakas Tangan</h2>
+                <p class="text-gray-700 text-sm">
+                    Pelatihan penggunaan alat manual seperti obeng, kunci pas, dan cutter dengan teknik yang tepat dan aman.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="500">
+                <h2 class="text-lg font-semibold text-gray-800">Mengukur Listrik/Elektronik</h2>
+                <p class="text-gray-700 text-sm">
+                    Mempelajari penggunaan multimeter dan alat ukur lainnya untuk mengukur tegangan, arus, dan resistansi dalam sistem pendingin.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <h2 class="text-lg font-semibold text-gray-800">Menyolder dengan Kuningan dan/atau Perak</h2>
+                <p class="text-gray-700 text-sm">
+                    Teknik soldering yang benar untuk memastikan sambungan pipa dan komponen sistem refrigerasi tahan lama dan bebas kebocoran.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="700">
+                <h2 class="text-lg font-semibold text-gray-800">Mengisi Sistem Pendingin</h2>
+                <p class="text-gray-700 text-sm">
+                    Pembekalan tentang cara mengisi refrigeran yang tepat ke sistem, termasuk pengetahuan jenis refrigeran dan cara mencegah kebocoran.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="800">
+                <h2 class="text-lg font-semibold text-gray-800">Merawat Mesin Refrigerasi Komersial dan Industri</h2>
+                <p class="text-gray-700 text-sm">
+                    Teknik perawatan rutin seperti cleaning, pengecekan level refrigeran, dan diagnosis masalah umum pada sistem pendingin.
+                </p>
+            </div>
         </div>
     </div>
-    </section>
+</section>
 
 
 
