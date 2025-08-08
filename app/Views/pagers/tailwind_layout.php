@@ -1,27 +1,49 @@
 <?php $pager->setSurroundCount(1) ?>
-<nav aria-label="Page navigation">
-    <ul class="inline-flex -space-x-px text-sm">
-        <?php if ($pager->hasPreviousPage()): ?>
+
+<nav aria-label="<?= lang('Pager.pageNavigation') ?>" class="mt-6 flex justify-center">
+    <ul class="inline-flex items-center space-x-1">
+        <?php if ($pager->hasPreviousPage()) : ?>
+            <li>
+                <a href="<?= $pager->getFirst() ?>" 
+                   class="px-3 py-1 rounded-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-100 transition"
+                   aria-label="<?= lang('Pager.first') ?>">
+                    « First
+                </a>
+            </li>
             <li>
                 <a href="<?= $pager->getPreviousPage() ?>" 
-                   class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">Previous</a>
+                   class="px-3 py-1 rounded-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-100 transition"
+                   aria-label="<?= lang('Pager.previous') ?>">
+                    ‹ Prev
+                </a>
             </li>
         <?php endif ?>
 
-            <?php foreach ($pager->links() as $link): ?>
-                <li>
-                    <a href="<?= $link['uri'] ?>" 
-                    class="px-3 py-2 leading-tight border border-gray-300 
-                            <?= $link['active'] ? 'bg-blue-600 text-white' : 'bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-700' ?>">
-                        <?= $link['title'] ?>
-                    </a>
-                </li>
-            <?php endforeach ?>
+        <?php foreach ($pager->links() as $link): ?>
+            <li>
+                <a href="<?= $link['uri'] ?>" 
+                   class="px-3 py-1 rounded-md border <?= $link['active'] 
+                       ? 'bg-blue-500 text-white border-blue-500' 
+                       : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100' ?> transition">
+                    <?= $link['title'] ?>
+                </a>
+            </li>
+        <?php endforeach ?>
 
-        <?php if ($pager->hasNextPage()): ?>
+        <?php if ($pager->hasNextPage()) : ?>
             <li>
                 <a href="<?= $pager->getNextPage() ?>" 
-                   class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
+                   class="px-3 py-1 rounded-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-100 transition"
+                   aria-label="<?= lang('Pager.next') ?>">
+                    Next ›
+                </a>
+            </li>
+            <li>
+                <a href="<?= $pager->getLast() ?>" 
+                   class="px-3 py-1 rounded-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-100 transition"
+                   aria-label="<?= lang('Pager.last') ?>">
+                    Last »
+                </a>
             </li>
         <?php endif ?>
     </ul>

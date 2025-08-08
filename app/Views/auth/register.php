@@ -84,7 +84,7 @@
                     </div>
                     <div>
                         <label for="phone_number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <input type="text" id="phone_number" name="phone_number" required class="form-input <?= session('errors.phone_number') ? 'border-red-500' : '' ?>" placeholder="08123456789" value="<?= old('phone_number') ?>">
+                        <input type="text" id="phone_number" name="phone_number" required class="form-input <?= session('errors.phone_number') ? 'border-red-500' : '' ?>" placeholder="+62 (081) 234-567" value="<?= old('phone_number') ?>">
                     </div>
                 </div>
 

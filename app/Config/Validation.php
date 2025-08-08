@@ -61,11 +61,10 @@ class Validation extends BaseConfig
         ],
          'phone_number' => [
             'label' => 'Nomor Telepon',
-            'rules' => 'required|numeric|min_length[8]|max_length[15]',
+            'rules' => 'required|regex_match[/^\+\d{1,3}\s\(\d{3}\)\s\d{3}-\d{4}$/]',
             'errors' => [
-                'numeric' => '{field} hanya boleh angka.',
-                'min_length' => '{field} terlalu pendek.',
-                'max_length' => '{field} terlalu panjang.',
+                'regex_match' => '{field} harus dalam format +1 (515) 711-7117.',
+                'required'    => '{field} wajib diisi.',
             ],
         ],
         'kabupaten' => [
