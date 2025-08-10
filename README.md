@@ -1,68 +1,145 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 — Starter (Enhanced)
 
-## What is CodeIgniter?
+> **Ringkasan:** Starter aplikasi CodeIgniter 4 yang telah dikembangkan dan dikustomisasi — clone dari situs PPKD Jakarta Utara dengan fitur tambahan seperti middleware terstruktur, sistem login & multi-role, CRUD lengkap, animasi UI lebih halus, dan lainnya.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## ✨ Fitur Utama
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+* **Otentikasi & Otorisasi**
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+  * Sistem login terpusat dengan multi-role (Admin, Operator, User, dll.)
+  * Middleware Role-Based Access Control (RBAC)
+* **CRUD & REST API**
 
-## Installation & updates
+  * Generator controller, model, view, dan validasi
+  * Endpoint JSON untuk integrasi frontend
+* **UX/UI**
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+  * Animasi transisi halus (CSS/JS)
+  * Komponen tabel, form, dan modal reusable
+* **Keamanan & Performa**
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+  * CSRF protection, input sanitization
+  * Rate limiting middleware opsional
+* **Pengembangan**
 
-## Setup
+  * Migration & Seeder otomatis
+  * Task script untuk composer/npm
+  * Contoh GitHub Actions (lint, test)
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+---
 
-## Important Change with index.php
+## 📂 Struktur Proyek
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+```
+/ (root)
+├─ app/                 # Controllers, Models, Views, Filters
+├─ public/              # Document root (index.php di sini)
+├─ writable/
+├─ tests/
+├─ vendor/
+├─ .env
+├─ composer.json
+└─ README.md
+```
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+> **Penting:** Konfigurasi web server agar `public/` menjadi document root.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## 🚀 Instalasi
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```bash
+git clone <repo-url>
+cd <repo-folder>
+composer install
+npm install # jika ada asset frontend
+cp env .env # lalu sesuaikan baseURL & database
+php spark migrate
+php spark db:seed UserSeeder
+php spark serve --host=0.0.0.0 --port=8080
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+## 📦 Deployment
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+* Point virtual host ke `public/`
+* PHP >= 8.1 + ekstensi `intl`, `mbstring`, `json`, `mysqlnd`
+* Jangan commit `.env`
+* Jalankan `php spark migrate --all` di server
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+**Contoh konfigurasi Nginx:**
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+```nginx
+server {
+    listen 80;
+    server_name contoh.domain.id;
+    root /path/to/project/public;
+    index index.php index.html;
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+    location ~ \.php$ {
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+```
+
+---
+
+## 🔐 Middleware & RBAC
+
+```php
+$routes->group('admin', ['filter' => 'role:admin,superadmin'], function($routes) {
+    $routes->get('dashboard', 'Admin\\Dashboard::index');
+});
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+composer test
+```
+
+---
+
+## 🐳 Docker (opsional)
+
+```yaml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: ci4
+      MYSQL_ROOT_PASSWORD: secret
+```
+
+---
+
+## ✅ Checklist Release
+
+* [ ] Migration & seeder dibuat
+* [ ] `.env` tidak ikut ter-commit
+* [ ] Test & linter lolos
+* [ ] Backup database sebelum migrasi
+
+---
+
+## 📄 Lisensi & Credits
+
+Berdasarkan CodeIgniter 4 — dokumentasi resmi: [https://codeigniter.com](https://codeigniter.com)
