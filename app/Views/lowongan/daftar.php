@@ -10,15 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        /* Custom focus styles */
         .form-input:focus, .form-select:focus {
             outline: none;
-            border-color: #3b82f6; /* blue-500 */
+            border-color: #3b82f6;
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
         }
     </style>
 </head>
-
 <body class="bg-gray-50 min-h-screen">
     <?= view('layout/navbar.php'); ?>
 
@@ -109,7 +107,6 @@
 
         </div>
     </div>
-    
     <?= view('layout/footer.php'); ?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

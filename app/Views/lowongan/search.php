@@ -77,12 +77,9 @@
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <!-- Navbar include would go here -->
     <?= view('layout/navbar.php'); ?>   
-    <!-- Jobs Container -->
     <div class="container mx-auto px-4 py-8" data-aos="fade-up" duration="1000">
         <div class="max-w-9xl mx-auto">
-
             <!-- Search Bar -->
             <form class="max-w-md mx-auto mb-10 mt-20" method="get" action="<?= base_url('lowongan/search') ?>">
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -102,7 +99,6 @@
                     </button>
                 </div>
             </form>
-
             <!-- Jobs Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <?php foreach ($lowongan as $data): ?>

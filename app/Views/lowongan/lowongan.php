@@ -17,11 +17,11 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            height: 100%; /* Ensures cards in a row have the same height */
+            height: 100%;
         }
         
         .job-card:hover {
-            border-color: #06b6d4; /* Tailwind's cyan-500 */
+            border-color: #06b6d4;
             box-shadow: 0 7px 20px -4px rgba(0, 0, 0, 0.1);
         }
         

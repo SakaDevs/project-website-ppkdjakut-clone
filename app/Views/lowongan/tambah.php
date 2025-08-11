@@ -25,7 +25,6 @@
 <body class="bg-gray-50 min-h-screen">
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100 justify-center mt-20" data-aos="fade-up" duration="3000">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tambah Lowongan Baru</h2>
-
         <?php if (session()->getFlashdata('errors')): ?>
             <div class="mb-4 bg-red-100 text-red-700 p-4 rounded">
                 <ul>

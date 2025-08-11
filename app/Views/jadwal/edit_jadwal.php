@@ -21,11 +21,10 @@
         }
     </style>
 </head>
-<?= view('layout/navbar.php'); ?>
 <body class="min-h-screen">
+    <?= view('layout/navbar.php'); ?>
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100 justify-center mt-20" data-aos="fade-up" duration="1000">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tambah Jadwal Baru</h2>
-
         <?php if (session()->getFlashdata('errors')): ?>
             <div class="mb-4 bg-red-100 text-red-700 p-4 rounded">
                 <ul>
@@ -87,8 +86,9 @@
             </div>
         </form>
     </div>
+    
     <?= view('layout/footer.php'); ?>
-       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({

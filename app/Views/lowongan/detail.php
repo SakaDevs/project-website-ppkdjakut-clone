@@ -15,13 +15,13 @@
             font-family: 'Poppins', sans-serif;
         }
         .prose-custom {
-            color: #374151; /* gray-700 */
+            color: #374151;
         }
         .prose-custom h2 {
-            font-size: 1.25rem; /* text-xl */
-            font-weight: 600; /* font-semibold */
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: #1f2937; /* gray-800 */
+            color: #1f2937;
         }
         .prose-custom ul {
             list-style-position: inside;
@@ -34,7 +34,7 @@
         }
         .prose-custom li::before {
             content: '•';
-            color: #06b6d4; /* cyan-500 */
+            color: #06b6d4;
             font-weight: bold;
             display: inline-block; 
             width: 1em;
@@ -45,13 +45,10 @@
     </style>
 </head>
 <body class="min-h-screen">
-
     <?= view('layout/navbar.php'); ?>
-
     <main class="container mx-auto px-4 py-12 lg:py-16 mt-20">
         <?php if (!empty($detail) && is_array($detail)) : ?>
             <div class="max-w-7xl mx-auto">
-                <!-- Page Header -->
                 <div class="mb-8" data-aos="fade-up">
                     <a href="/lowongan" class="inline-flex items-center text-cyan-600 hover:text-cyan-800 transition-colors mb-4">
                         <i class="bi bi-arrow-left mr-2"></i>
@@ -64,11 +61,7 @@
                         di <span class="font-semibold text-gray-600"><?= htmlspecialchars($detail['nama_perusahaan'] ?? 'N/A') ?></span>
                     </p>
                 </div>
-
-                <!-- Main Content Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-                    
-                    <!-- Left Column: Job Description -->
                     <div class="lg:col-span-2" data-aos="fade-right" data-aos-delay="300">
                         <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200">
                             <img class="w-full h-auto object-cover rounded-xl mb-8"
@@ -81,8 +74,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Right Column: Summary Box -->
                     <div class="lg:col-span-1" data-aos="fade-left" data-aos-delay="400">
                         <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 sticky top-28">
                             <h2 class="text-xl font-bold text-gray-800 mb-4">Ringkasan Pekerjaan</h2>
@@ -130,8 +121,6 @@
             </div>
         <?php endif; ?>
     </main>
-
-    <!-- Include Footer -->
     <?= view('layout/footer.php'); ?>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

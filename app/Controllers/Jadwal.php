@@ -25,7 +25,6 @@ class Jadwal extends BaseController
     {
         return view('jadwal/tambah_jadwal');
     }
-
     public function simpan()
     {
         $data = [
@@ -44,7 +43,6 @@ class Jadwal extends BaseController
         $jadwalModel->insert($data);
         return redirect()->to('/jadwal')->with('success','Lowongan Berhasil Ditambahkan');
     }
-
     public function edit($id)
     {
         $jadwalModel = new jadwalModel();
@@ -59,7 +57,6 @@ class Jadwal extends BaseController
         $jadwalModel->update($id, $data);
         return redirect()->to('jadwal')->with('success','');
     }
-
     public function search()
     {
         $keyword = $this->request->getGet('keyword');

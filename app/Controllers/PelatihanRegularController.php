@@ -39,7 +39,6 @@ class PelatihanRegularController extends BaseController
         return redirect('pelatihan/reguler/pelatihan/regular');
         
     }
-
     public function edit($id)
     {
         $pelatihanModel = new PelatihanRegularModel();

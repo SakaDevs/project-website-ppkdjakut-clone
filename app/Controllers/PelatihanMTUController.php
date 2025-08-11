@@ -39,7 +39,6 @@ class PelatihanMTUController extends BaseController
         return redirect('pelatihan/MTU');
         
     }
-
     public function edit($id)
     {
         $pelatihanModel = new PelatihanMTUModel();

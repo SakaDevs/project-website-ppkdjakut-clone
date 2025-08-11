@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-
+    <!-- LAYANAN -->
     <div id="layanan" class="pt-20 mt-8 pb-10">
     <section class="bg-slate-800 py-16 sm:py-20" >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -168,8 +168,7 @@
         </div>
     </section>
     </div>
-
-    
+    <!-- Alur Pelatihan Regular -->
     <section x-data="{ activeStep: 0 }" class="pt-20 pb-10 bg-white">
         <h1 class="text-4xl text-center font-light text-gray-800 mb-10" data-aos="fade-up">
             Alur Pelatihan Reguler
@@ -264,7 +263,7 @@
        </div>
     </section>
 
-
+                    
     <div x-data="{ tab: 'unduh' }" class="bg-gray-700 text-white p-8 max-h-auto" data-aos="fade-up">
         <h2 class="text-3xl tracking-tight text-white sm:text-5xl text-center m-20 font-light" >Alur Pelatihan MTU</h2>
 
